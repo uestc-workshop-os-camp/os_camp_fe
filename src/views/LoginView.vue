@@ -127,7 +127,7 @@ const exchangeCodeForAccessToken = async (code) => {
 };
 
 </script>
-<style lang="less" scoped>
+<style scoped>
 .animate_slidedown {
     animation: slidedown 1s ease-out forwards
 }
