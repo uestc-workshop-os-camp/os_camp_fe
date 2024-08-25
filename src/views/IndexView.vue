@@ -7,7 +7,7 @@
 
 <script setup>
 import axios from 'axios'
-import { useRoute, useRouter } from 'vue-router';
+import { useRoute } from 'vue-router';
 const route = useRoute()
 console.log(route.query)
 

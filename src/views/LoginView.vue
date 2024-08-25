@@ -76,8 +76,8 @@
 
 </template>
 <script setup>
-import { ref, reactive } from 'vue';
-import axios from 'axios';
+import { reactive } from 'vue';
+// import axios from 'axios';
 // 操作系统icon
 const OS_icon = reactive(['src/assets/svg/icon/windows.svg', 'src/assets/svg/icon/Android.svg', 'src/assets/svg/icon/HarmonyOS.svg', 'src/assets/svg/icon/Linux.svg', 'src/assets/svg/icon/macOS.svg'])
 const handleGitHubLogin = () => {
@@ -97,34 +97,34 @@ const handleGitHubLogin = () => {
     window.location.href = authUrl;
 };
 // 向github拿令牌
-const exchangeCodeForAccessToken = async (code) => {
-    const githubTokenURL = 'https://github.com/login/oauth/access_token';
-    const clientId = 'Ov23liwBsRbAqy6QgNoC';
-    const clientSecret = 'aac5ff08e67f0caf9b2cc1f559a37f5644d7dc1f'; // WARNING: This should NOT be in the frontend.
-    const redirectUri = 'http://localhost:5173/Index';
+// const exchangeCodeForAccessToken = async (code) => {
+//     const githubTokenURL = 'https://github.com/login/oauth/access_token';
+//     const clientId = 'Ov23liwBsRbAqy6QgNoC';
+//     const clientSecret = 'aac5ff08e67f0caf9b2cc1f559a37f5644d7dc1f'; // WARNING: This should NOT be in the frontend.
+//     const redirectUri = 'http://localhost:5173/Index';
 
-    const response = await axios({
-        method: 'post',
-        url: githubTokenURL,
-        data: {
-            client_id: clientId,
-            client_secret: clientSecret,
-            code: code,
-            redirect_uri: redirectUri,
-            grant_type: 'authorization_code'
-        },
-        headers: {
-            Accept: 'application/json' // Request JSON response format
-        }
-    });
+//     const response = await axios({
+//         method: 'post',
+//         url: githubTokenURL,
+//         data: {
+//             client_id: clientId,
+//             client_secret: clientSecret,
+//             code: code,
+//             redirect_uri: redirectUri,
+//             grant_type: 'authorization_code'
+//         },
+//         headers: {
+//             Accept: 'application/json' // Request JSON response format
+//         }
+//     });
 
-    if (response.status === 200) {
-        console.log(response.data.access_token)
-        return response.data.access_token;
-    } else {
-        throw new Error('Failed to fetch access token');
-    }
-};
+//     if (response.status === 200) {
+//         console.log(response.data.access_token)
+//         return response.data.access_token;
+//     } else {
+//         throw new Error('Failed to fetch access token');
+//     }
+// };
 
 </script>
 <style scoped>
