@@ -5,7 +5,8 @@
     <!-- OS icon -->
     <div class="w-[25vw] absolute left-1/2 -translate-x-1/2 top-[18vh] z-10 flex justify-between animate_slidedown">
         <div class="" v-for="(item, index) in OS_icon" :key="index">
-            <img :src="item" alt="" class="w-[64px]  hover:scale-125 hover:-translate-y-12 transition duration-300 ease-in-out">
+            <img :src="item" alt=""
+                class="w-[64px]  hover:scale-125 hover:-translate-y-12 transition duration-300 ease-in-out">
 
         </div>
     </div>
@@ -48,7 +49,7 @@
                             <input class="w-4/5 pl-2 outline-none text-xs" type="password" placeholder="Password">
                         </div>
                         <!-- 登录按钮 -->
-                        <div
+                        <div @click="login"
                             class="userformButton w-5/6 h-10 bg-blue-700 text-white text-center leading-10 rounded-md text-xs mt-8 font-bold active:bg-blue-900">
                             SIGN IN</div>
                     </form>
@@ -77,24 +78,28 @@
 </template>
 <script setup>
 import { reactive } from 'vue';
+import { useRouter } from 'vue-router';
+const router = useRouter()
 // import axios from 'axios';
 // 操作系统icon
 const OS_icon = reactive(['src/assets/svg/icon/windows.svg', 'src/assets/svg/icon/Android.svg', 'src/assets/svg/icon/HarmonyOS.svg', 'src/assets/svg/icon/Linux.svg', 'src/assets/svg/icon/macOS.svg'])
 const handleGitHubLogin = () => {
+    alert('哈哈，不需要登录哦')
+    router.push('/home')
     // GitHub OAuth URL
-    const githubOAuthURL = 'https://github.com/login/oauth/authorize';
-    // 客户端 ID
-    const clientId = 'Ov23liwBsRbAqy6QgNoC';
-    // 客户端密码：aac5ff08e67f0caf9b2cc1f559a37f5644d7dc1f
-    // 回调地址
-    const redirectUri = 'http://localhost:5173/Index'; // Change this to your actual callback URL
+    // const githubOAuthURL = 'https://github.com/login/oauth/authorize';
+    // // 客户端 ID
+    // const clientId = 'Ov23liwBsRbAqy6QgNoC';
+    // // 客户端密码：aac5ff08e67f0caf9b2cc1f559a37f5644d7dc1f
+    // // 回调地址
+    // const redirectUri = 'http://localhost:5173/Index'; // Change this to your actual callback URL
 
-    // Construct the full authorization URL
-    const authUrl = `${githubOAuthURL}?client_id=${clientId}&redirect_uri=${redirectUri}`;
-    console.log(authUrl)
-    // exchangeCodeForAccessToken()
-    // Redirect to the GitHub OAuth page
-    window.location.href = authUrl;
+    // // Construct the full authorization URL
+    // const authUrl = `${githubOAuthURL}?client_id=${clientId}&redirect_uri=${redirectUri}`;
+    // console.log(authUrl)
+    // // exchangeCodeForAccessToken()
+    // // Redirect to the GitHub OAuth page
+    // window.location.href = authUrl;
 };
 // 向github拿令牌
 // const exchangeCodeForAccessToken = async (code) => {
@@ -126,6 +131,10 @@ const handleGitHubLogin = () => {
 //     }
 // };
 
+function login() {
+    alert('哈哈，不需要登录哦')
+    router.push('/home')
+}
 </script>
 <style scoped>
 .animate_slidedown {
