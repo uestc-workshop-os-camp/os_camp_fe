@@ -18,11 +18,14 @@
         class="content--layout content-wrap homePage w-full h-screen bg-[#363dc2] flex justify-center items-center flex-col -z-20">
         <!-- 首页头部 -->
         <div class="homePageTop flex w-full min-w-20 h-8 justify-between absolute top-0">
-            <div
+            <RouterLink
+                to="/rank"
                 class="rankButton bg-transparent w-auto min-w-10 h-auto text-white font-bold text-xl relative left-10 top-10 border-b-2 border-solid border-white hover:text-[#cdd0ff]">
-                Visit Rank</div>
-            <div class="loginButton bg-transparent text-white font-bold right-10 text-xl relative top-10 z-10">Login
-            </div>
+                Visit Rank</RouterLink>
+            <RouterLink 
+                to="/login"
+                class="loginButton bg-transparent text-white font-bold right-10 text-xl relative top-10 z-10">
+                Login</RouterLink>
         </div>
 
         <!-- 首页标题 -->
@@ -46,9 +49,9 @@
     <!-- 工作室页面 -->
     <div class="studioPage w-full h-[500vh] bg-[#363dc2] flex items-center flex-col">
         <!-- 想做一个点击工作室logo下滑到对应位置的效果，还未实现 -->
-        <div class="content-wrap studioNavigate w-full h-screen flex  items-center flex-col z-0">
-            <h1 class=" text-white text-5xl font-bold mb-16 mt-16">成员工作室</h1>
-            <div class="flex mt-16">
+        <div class="content-wrap w-full h-screen flex  items-center flex-col z-0">
+            <h1 class=" text-white text-5xl font-bold mb-16 mt-20">成员工作室</h1>
+            <div class="flex mt-24">
                 <!-- 一路 -->
                 <div class="studioLogo flex flex-col justify-center items-center">
                     <div class=" ml-5 mr-5 min-w-[100px]"><img src='../assets/img/studio/yilu/logo.jpg'
@@ -57,15 +60,15 @@
                 </div>
                 <!-- 微光 -->
                 <div class="studioLogo flex flex-col justify-center items-center">
-                    <div class=" ml-5 mr-5 min-w-[100px]"><img src='../assets/img/studio/yilu/logo.jpg'
+                    <div class=" ml-5 mr-5 min-w-[100px]"><img src='../assets/img/studio/glimmer/logo.png'
                             class="rounded-full" width="250px"></div>
                     <a href="#weiguang" class="content__link text-white font-lg text-2xl mt-10">微光工作室</a>
                 </div>
                 <!-- yolo -->
                 <div class="studioLogo flex flex-col justify-center items-center">
-                    <div class=" ml-5 mr-5 min-w-[100px]"><img src='../assets/img/studio/yilu/logo.jpg'
+                    <div class=" ml-5 mr-5 min-w-[100px]"><img src='../assets/img/studio/yolo/logo.jpg'
                             class="rounded-full" width="250px"></div>
-                    <a href="#yolo" class="content__link text-white font-lg text-2xl mt-10">yolo工作室</a>
+                    <a href="#yolo" class="content__link text-white font-lg text-2xl mt-10">YOLO工作室</a>
                 </div>
                 <!-- 嵌入式 -->
                 <div class="studioLogo flex flex-col justify-center items-center">
@@ -120,18 +123,21 @@
                     <el-collapse-item title="研究方向🧐" name="3">
                         <div class="mb-4 text-xl">{{ introducionYilu.data3 }}</div>
                     </el-collapse-item>
+                    <el-collapse-item title="项目成果✨" name="4">
+                        <div class="mb-4 text-lg">{{ introducionYilu.data4 }}</div>
+                    </el-collapse-item>
                 </el-collapse>
 
                 <div class="studioPic flex justify-evenly p-4">
                     <img :src="introducionYilu.pic1Src" alt=""
                         class="rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
                         style="width: 30%; height: auto;">
-                    <img :src="introducionYilu.pic1Src" alt=""
+                    <img :src="introducionYilu.pic2Src" alt=""
                         class="rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
                         style="width: 30%; height: auto;">
-                    <img :src="introducionYilu.pic1Src" alt=""
+                    <!-- <img :src="introducionYilu.pic1Src" alt=""
                         class="rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
-                        style="width: 30%; height: auto;">
+                        style="width: 30%; height: auto;"> -->
                 </div>
             </el-card>
         </div>
@@ -182,6 +188,9 @@
                     <el-collapse-item title="研究方向🧐" name="3">
                         <div class="mb-4 text-lg">{{ introducionGlimmer.data3 }}</div>
                     </el-collapse-item>
+                    <el-collapse-item title="项目成果✨" name="4">
+                        <div class="mb-4 text-lg">{{ introducionGlimmer.data4 }}</div>
+                    </el-collapse-item>
                 </el-collapse>
                 <div class="studioPic flex justify-evenly p-4">
                     <img :src="introducionGlimmer.pic1Src" alt=""
@@ -190,6 +199,9 @@
                     <img :src="introducionGlimmer.pic2Src" alt=""
                         class="rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
                         style="width: 30%; height: auto;">
+                    <img :src="introducionGlimmer.pic3Src" alt=""
+                    class="rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
+                    style="width: 30%; height: auto;">
                 </div>
             </el-card>
         </div>
@@ -236,16 +248,19 @@
                     <el-collapse-item title="研究方向🧐" name="3">
                         <div class="mb-4 text-xl">{{ introducionYolo.data3 }}</div>
                     </el-collapse-item>
+                    <el-collapse-item title="项目成果✨" name="4">
+                        <div class="mb-4 text-lg">{{ introducionYolo.data4 }}</div>
+                    </el-collapse-item>
                 </el-collapse>
 
                 <div class="studioPic flex justify-evenly p-4">
                     <img :src="introducionYolo.pic1Src" alt=""
                         class="rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
                         style="width: 30%; height: auto;">
-                    <img :src="introducionYolo.pic1Src" alt=""
+                    <img :src="introducionYolo.pic2Src" alt=""
                         class="rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
                         style="width: 30%; height: auto;">
-                    <img :src="introducionYolo.pic1Src" alt=""
+                    <img :src="introducionYolo.pic3Src" alt=""
                         class="rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
                         style="width: 30%; height: auto;">
                 </div>
@@ -296,16 +311,19 @@
                     <el-collapse-item title="研究方向🧐" name="3">
                         <div class="mb-4 text-xl">{{ introducionEmbedded.data3 }}</div>
                     </el-collapse-item>
+                    <el-collapse-item title="项目成果✨" name="4">
+                        <div class="mb-4 text-lg">{{ introducionEmbedded.data4 }}</div>
+                    </el-collapse-item>
                 </el-collapse>
 
                 <div class="studioPic flex justify-evenly p-4">
                     <img :src="introducionEmbedded.pic1Src" alt=""
                         class="rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
                         style="width: 30%; height: auto;">
-                    <img :src="introducionEmbedded.pic1Src" alt=""
+                    <img :src="introducionEmbedded.pic2Src" alt=""
                         class="rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
                         style="width: 30%; height: auto;">
-                    <img :src="introducionEmbedded.pic1Src" alt=""
+                    <img :src="introducionEmbedded.pic3Src" alt=""
                         class="rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
                         style="width: 30%; height: auto;">
                 </div>
@@ -337,16 +355,16 @@ function scrollHandler(event) {
     if (isScrolling == true) { return }
     isScrolling = true
     new Promise((resolve) => {
-        console.log(event)
-        console.log(event.target)
+        // console.log(event)
+        // console.log(event.target)
         if (event.deltaY < 0) {
             window.scrollBy({ top: -window.innerHeight, behavior: 'smooth' });
-            console.log(window.innerHeight)
+            // console.log(window.innerHeight)
             if (pageNow.value > 1) { pageNow.value-- }
         }
         else if (event.deltaY > 0) {
             window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
-            console.log(window.innerHeight)
+            // console.log(window.innerHeight)
             if (pageNow.value < pageNum) { pageNow.value++ }
         }
         setTimeout(() => { resolve() }, 500)
@@ -364,28 +382,35 @@ const introducionYilu = reactive({
     name: '一路工作室',
     data1: '于2016年底正式成立，由戴瑞婷老师负责组建。工作室成立之初下属于学工部，服务于学院的各种需求而开发对应的Web系统，后归属于创新工坊，在服务于学院的同时参加各种比赛。',
     data2: '一路是一个自由的工作室，同学们收获知识共同进步，交流有关学习生活等等事情，还有许多特别热情且乐于助人的学长学姐，刚进入工作室的新同学也能快速融入。一路大家庭欢迎各类同学加入，如果你想要与优秀的同学共同勉励，一路会是你的不二之选。',
-    data3: '工作室研究方向：前端 后端 机器学习',
+    data3: '工作室研究方向：前端 后端 机器学习 \n 工作室地点：沙河校区第三教学楼401',
+    data4:'我们工作室的主要研究方向是Web系统开发，主要是前后端开发，其中包括前端Serverless，流量优化，防抖动策略，懒加载策略的研究等，后端则是关于高并发，微服务的研究。但我们又不局限于Web系统，微信小程序，10S开发也有所涉及和研究。 同时我们拓展了机器学习方向，提供学习资源，项目资源以及科研资源，欢迎大家的加入。 到目前为止，工作室接手过创新项目院级项目11项，校级项目8项。其中Web项目9 项，微信小程序6项。如智能助困系统，高校督导系统，成绩发布系统，舌尖沙河，活动预约系统。',
     website: '#',
     pic1Src: 'src/assets/img/studio/yilu/pic1.jpg',
+    pic2Src: 'src/assets/img/studio/yilu/pic2.png',
 })
 
 const introducionGlimmer = reactive({
     name: '微光工作室',
     data1: '成立于 2012 年，前身“微软创新工作室”、“黑色之光工作室”。团队立足 IT 基础与底层架构相关技术，面向兴趣和前沿应用方向扩展，是技术氛围最浓厚、团队联系最紧密的工作室之一。',
-    data2: '“心有微光，不惧黑暗”是我们的口号，也是微光工作室在发展中始终贯彻的信条。秉持“兴趣驱动，自由发展”的理念，我们乐于接收对不同技术方向感兴趣的朋友，善于探求未知的技术领域。工作室由一群热爱技术的 Geek 组成，力图召集志同道合，敢于创新的伙伴们共同拼搏，挑战自我。',
-    data3: '作为研究氛围最自由的工作室之一，微光工作室并不限制团队成员的技术方向，而是鼓励成员以兴趣导向的积极进步寻找适合自己的领域。经过多年发展，工作室当前形成了以 IT 基础架构领域为中心的团队技术方向，并辅以上层应用和前沿领域技术推进，同时鼓励百花齐放的路线创新。',
+    data2: '“心有微光，不惧黑暗”是我们的口号，也是微光工作室在发展中始终贯彻的信条。秉持“兴趣驱动，自由发展”的理念，我们乐于接收对不同技术方向感兴趣的朋友，善于探求未知的技术领域。工作室由一群热爱技术的 Geek 组成，力图召集志同道合，敢于创新的伙伴们共同拼搏，挑战自我。\n微光工作室技术氛围浓厚，学期内定期组织多场技术相关分享会活动，由工作室内有相关研究经验的同学对某项技术主题展开专题分享，激发工作室成员在相关领域的学习热情。针对成员的学习需求，工作室还不定期组织项目学习和任务指导，供成员自由学习参考。',
+    data3: '作为研究氛围最自由的工作室之一，微光工作室并不限制团队成员的技术方向，而是鼓励成员以兴趣导向的积极进步寻找适合自己的领域。经过多年发展，工作室当前形成了以 IT 基础架构领域为中心的团队技术方向，并辅以上层应用和前沿领域技术推进，同时鼓励百花齐放的路线创新。\n目前团队在校成员在 OS 内核、云计算、编译技术、硬件设计、SDN 等方向均有研究进展与项目实现，毕业成员也多投身基础架构相关岗位和研究领域。除此之外，团队也拥有应用层web 开发、机器学习等成熟的技术组与培养路线，欢迎不同技术方向的同学与我们共同进步。',
+    data4:'近期成果奖项：2022中国高校计算机大赛-网络技术挑战赛区域赛一等奖、国家级一等奖 2020 中国高校计算机大赛-网络技术挑战赛区域赛一等奖、国家级二等奖；2021 中国高校计算机大赛-网络技术挑战赛区域赛一等奖、国家级三等奖;    第十三届服务外部创新创业大赛西部区域赛一等奖、国家级二等奖；第十四届服务外部创新创业大赛西部区域赛一等奖、国家级三等奖;第十六届中国大学生计算机设计大赛 省级二等奖 x 1、省级三等奖 x 1;第十三、十四届蓝桥杯信息技术产业人才大赛 省级二等奖 x 2 + 省级三等奖 x 2;2021 中国高校计算机大赛-微信小程序应用开发赛区域一等奖、国家级三等奖;2020 中国高校计算机大赛-微信小程序应用开发赛区域二等奖',
     website: '#',
     pic1Src: 'src/assets/img/studio/glimmer/pic1.png',
     pic2Src: 'src/assets/img/studio/glimmer/pic2.png',
+    pic3Src: 'src/assets/img/studio/glimmer/pic3.png',
 })
 
 const introducionYolo = reactive({
     name: 'YOLO工作室',
-    data1: '“我们欢迎任何充满活力与创新力的新血液”',
+    data1: '着眼当下，我们欢迎任何充满活力与创新力的新血液',
     data2: '指导老师：江维、詹瑾瑜；2021，2020，2019，2018级的众多优秀学长的亲自带领；三教403专属工位，除图书馆或者教室的又一选择；实习内推，就业指导，科研指路，你需要的，我们都有',
     data3: '成员风格各异，自由成长不受限，只要你能保持活力，无论是web开发，还是嵌入式底层研发，又或者海外留学与科研，总能绽放属于自己的光芒',
+    data4:'主要科研项目：嵌入式AI与可信AI。工作室在智能嵌入式系统领域，发表了一系列高水平学术论文：“解决工业信息物理系统DNN安全性分层保护难题”，“提出DNN对抗强度和类型感知的检测防御方法”，“指出可解释驱动的DNN后门攻击防御方法”，“提出抗模型权重扰动的激活上界感知DNN容错方法”，“提出针对大数据存储节点的CPU-FPGA协同加速方法”等',
     website: '#',
     pic1Src: 'src/assets/img/studio/yolo/pic1.jpg',
+    pic2Src: 'src/assets/img/studio/yolo/pic2.png',
+    pic3Src: 'src/assets/img/studio/yolo/pic3.png',
 })
 
 const introducionEmbedded = reactive({
@@ -393,8 +418,11 @@ const introducionEmbedded = reactive({
     data1: '成立于2011年，是信软学院创新工坊历史最悠久的工作室之一，现已成长为信软学院旗下科创组织中数一数二的工作室。工作室以建立完善的“计算机体系结构"为宗旨，秉承"To Learn By Doing"的学习理念，以培养未来系统架构师、首席技术官为目标。',
     data2: '嵌入式工作室研究单片机与ARM-Linux开发、计算枳视觉、硬件电路设计、Linux系统级程序设计、FPGA、算法等。工作室在成立的八年里获得了诸多的成就。每一届都有极大比例的工作室成员前往Intel、大疆、腾讯、字节跳动、商汤、地平线、美团、旷视等国内外大型企业实习实训。还有百分之八十五的保研率与大量的校赛国赛国际比赛竞赛获奖。',
     data3: '嵌入式工作室现在每届约为二十人，我们在三教整个404以及部分405，为工作室成员提供良好的嵌入式开发环境，通过竞赛与项目来提升自己，带你深入了解计算机体系架构，从无到有的创造，从一块芯片到一个四轴飞行器，从一块开发板到一个自动避障小车，裁剪内核，定制系统。',
+    data4: '巡线四轴无人机、Makepander太极熊创客教育、基于微信小程序的弹幕式课堂互动助手、智能枕芯项目等',
     website: '#',
     pic1Src: 'src/assets/img/studio/embedded/pic1.png',
+    pic2Src: 'src/assets/img/studio/embedded/pic2.png',
+    pic3Src: 'src/assets/img/studio/embedded/pic3.png',
 })
 
 // 工作室介绍折叠面板

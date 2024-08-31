@@ -30,13 +30,14 @@
     </el-table>
     <!-- 排行榜分页选项 -->
     <el-pagination class="flex justify-center mt-6" layout="prev, pager, next" :page-size="pageInfo.pageSize"
-      :pager-count="pageInfo.pageCount" :current-page="pageInfo.pageNow.value" :total="pageInfo.pageTotal"
+      :pager-count="pageInfo.pageCount" :current-page="pageNow.value" :total="pageInfo.pageTotal"
       @current-change="pageChange($event)" />
   </div>
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue'
+import axios from 'axios';
+import { ref, reactive, watch } from 'vue'
 
 // 右上方用户头像
 const userAvatar = "https://luvmand.top/img/head.png"
@@ -44,6 +45,7 @@ const userName = "Ari"
 const defualtAvatar = "src/assets/svg/login.svg"
 
 // 排名数据 一页十个人
+/*
 const tableData = [
   {
     date: '2024-08-03',
@@ -155,18 +157,33 @@ const tableData = [
     ch5: '50',
     avatar: defualtAvatar
   },
-]
+]*/
+const tableData = reactive([])
 // 分页选项配置
 const pageInfo = reactive({
   pageSize: 10, // 每页人数
   pageCount: 5, // 选项数量
-  pageTotal: tableData.length, // 数据总量
-  pageNow: ref(1), // 设置当前页面
+  pageTotal: 200, // 数据总量
 })
+const pageNow=ref(1)// 设置当前页面
+
 // 选择其他页面
 const pageChange = (page) => {
-  pageInfo.pageNow = page;
-  // axios请求对应页码排名数据
-
+  pageNow.value = page;
 }
+
+// const baseURL = 'http://dev-cn.your-api-server.com/api/scores'
+// // 二阶段榜单查询 榜单内容
+// watch(pageNow,(newValue,oldValue)=>{
+//   console.log(`old is ${oldValue}, new is ${newValue}`)
+//   axios({
+//     url: `${baseURL}/${newValue}/${pageInfo.pageSize}/2`,
+//     method:'get',
+//   }).then(response=>{
+//     if(response.integer==200)
+//   {
+//     console.log(response.data)
+//   }
+//   })
+// })
 </script>
