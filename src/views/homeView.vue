@@ -46,6 +46,22 @@
         </div>
     </div>
 
+    <!-- 加入活动 -->
+    <div class="joinPage w-full h-[100vh] bg-[#363dc2] flex items-center flex-col ">
+            <div class="z-10 w-full h-full flex items-center justify-center">
+                <div class="text-white mr-24 flex items-start justify-center flex-col">
+                    <h1 class=" text-5xl font-bold relative mb-5">活动详情</h1>
+                        <div class="w-[38rem] mt-5 text-lg">由多个工作室联合举办的为期2月的开源操作系统训练营活动，为对计算机底层感兴趣的同学提供一个学习平台。无论你是否接触过体系结构的项目，你能通过这个活动了解到你是否喜欢它，是否可能继续研究它。如果你已经计划走向计算机科学家的道路，那通过这个活动，你能积累更多知识，找到志同道合的伙伴。你亦可以通过参与举办这次活动的工作室的招新，成为多个工作室的成员。</div>
+                        <div class="w-[38rem] mt-2 text-lg">活动本身取自清华大学面向社会的开源操作系统训练营，题目来自于清华大学计算机学院以及叉院的lab。意在推广清华大学的开源活动，已得到举办老师的支持。</div>
+                        <!-- <div class="text-xl mt-2">9.25-10.19 : rust学习</div>
+                        <div class="text-xl mt-2">10.20-11.19 : rcore实验</div> -->
+                        <div class=" text-3xl font-bold mt-10">- Github<a href="https://github.com/uestc-workshop-os-camp" class="border-b-2 hover:text-slate-200">报名链接</a></div>
+                        <div class=" text-2xl mt-5 font-bold">- 官方QQ群：735598360</div>
+                </div>
+                <img src="@/assets/img/chat.jpg" alt="" width="400px" class=" rounded-md ml-2"></div>
+
+    </div>
+
     <!-- 工作室页面 -->
     <div class="studioPage w-full h-[500vh] bg-[#363dc2] flex items-center flex-col">
         <!-- 想做一个点击工作室logo下滑到对应位置的效果，还未实现 -->
@@ -332,7 +348,7 @@
     </div>
     <!-- 点击下滑按钮 -->
     <img v-if="pageNow != pageNum" @click="scrollDown" id="downButton" src="@/assets/svg/down.svg" alt="" width="45px"
-        class=" fixed bottom-5 left-1/2 animate-bounce">
+        class=" fixed bottom-5 left-1/2 animate-bounce z-20">
 </template>
 
 <script setup>
@@ -347,7 +363,7 @@ onMounted(() => {
 
 // 移动控制
 const pageNow = ref(1)
-const pageNum = 6;
+const pageNum = 7;
 let isScrolling = false;
 
 function scrollHandler(event) {
@@ -355,21 +371,27 @@ function scrollHandler(event) {
     if (isScrolling == true) { return }
     isScrolling = true
     new Promise((resolve) => {
-        // console.log(event)
-        // console.log(event.target)
         if (event.deltaY < 0) {
             window.scrollBy({ top: -window.innerHeight, behavior: 'smooth' });
-            // console.log(window.innerHeight)
             if (pageNow.value > 1) { pageNow.value-- }
         }
         else if (event.deltaY > 0) {
             window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
-            // console.log(window.innerHeight)
             if (pageNow.value < pageNum) { pageNow.value++ }
         }
         setTimeout(() => { resolve() }, 500)
-    }).then(() => { isScrolling = false; console.log(pageNow.value) })
+    }).then(() => { isScrolling = false;})
 };
+function scrollDown()
+{
+    if (isScrolling == true) { return }
+    isScrolling = true
+    new Promise((resolve) => {
+        window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+        if (pageNow.value < pageNum) { pageNow.value++ }
+        setTimeout(() => { resolve() }, 500)
+    }).then(() => { isScrolling = false;})
+}
 
 // const studioLogo = reactive({
 //     0: { srcImg: 'src/assets/img/studio/yilu/logo.jpg', name: '一路工作室', },
@@ -431,3 +453,15 @@ const weiguangActiveName = ref('1')
 const yoloActiveNames = ref('1')
 const qianrushiActiveNames = ref('1')
 </script>
+
+<style>
+.el-card{
+    background-color: rgba(255, 255, 255, 0.7) !important;
+    border: hidden !important;
+}
+.el-collapse{
+    --el-collapse-header-bg-color:rgba(255, 255, 255, 0.4) !important;
+    --el-collapse-content-bg-color:rgba(255, 255, 255, 0.4) !important;
+}
+
+</style>
