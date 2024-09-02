@@ -15,22 +15,20 @@
 
     <!-- 首页 -->
     <div
-        class="content--layout content-wrap homePage w-full h-screen bg-[#363dc2] flex justify-center items-center flex-col -z-20">
+        class="content--layout content-wrap homePage w-full h-[50vh] lg:h-screen bg-[#363dc2] flex justify-center items-center flex-col -z-20">
         <!-- 首页头部 -->
         <div class="homePageTop flex w-full min-w-20 h-8 justify-between absolute top-0">
-            <RouterLink
-                to="/rank"
+            <RouterLink to="/rank"
                 class="rankButton bg-transparent w-auto min-w-10 h-auto text-white font-bold text-xl relative left-10 top-10 border-b-2 border-solid border-white hover:text-[#cdd0ff]">
                 Visit Rank</RouterLink>
-            <RouterLink 
-                to="/login"
+            <RouterLink to="/login"
                 class="loginButton bg-transparent text-white font-bold right-10 text-xl relative top-10 z-10">
                 Login</RouterLink>
         </div>
 
         <!-- 首页标题 -->
         <div class="homePageTitle w-auto h-auto  bg-transparent p-1 flex justify-center">
-            <div class="content__img"><img src="@/assets/img/homePic.jpg" alt=""
+            <div class="content__img"><img src="/img/homePic.jpg" alt=""
                     class="relative left-1/5 bottom-10 z-0 shadow-2xl max-w-[350px] max-h-[350px]:"></div>
             <div class="title text-white relative left-5 z-10 w-3/4">
                 <h1 class=" font-extrabold text-7xl relative right-48 mb-4 bottom-6">操作系统开源活动</h1>
@@ -47,79 +45,69 @@
     </div>
 
     <!-- 加入活动 -->
-    <div class="joinPage w-full h-[100vh] bg-[#363dc2] flex items-center flex-col ">
-            <div class="z-10 w-full h-full flex items-center justify-center">
-                <div class="text-white mr-24 flex items-start justify-center flex-col">
-                    <h1 class=" text-5xl font-bold relative mb-5">活动详情</h1>
-                        <div class="w-[38rem] mt-5 text-lg">由多个工作室联合举办的为期2月的开源操作系统训练营活动，为对计算机底层感兴趣的同学提供一个学习平台。无论你是否接触过体系结构的项目，你能通过这个活动了解到你是否喜欢它，是否可能继续研究它。如果你已经计划走向计算机科学家的道路，那通过这个活动，你能积累更多知识，找到志同道合的伙伴。你亦可以通过参与举办这次活动的工作室的招新，成为多个工作室的成员。</div>
-                        <div class="w-[38rem] mt-2 text-lg">活动本身取自清华大学面向社会的开源操作系统训练营，题目来自于清华大学计算机学院以及叉院的lab。意在推广清华大学的开源活动，已得到举办老师的支持。</div>
-                        <!-- <div class="text-xl mt-2">9.25-10.19 : rust学习</div>
-                        <div class="text-xl mt-2">10.20-11.19 : rcore实验</div> -->
-                        <div class=" text-3xl font-bold mt-10">- Github<a href="https://github.com/uestc-workshop-os-camp" class="border-b-2 hover:text-slate-200">报名链接</a></div>
-                        <div class=" text-2xl mt-5 font-bold">- 官方QQ群：735598360</div>
+    <div class="p-4  joinPage w-full h-[40vh] lg:h-screen bg-[#363dc2] flex items-center flex-col ">
+        <div class="z-10 w-full h-full flex items-center justify-center">
+            <div class="text-white mr-4 lg:mr-24 flex items-start justify-center flex-col">
+                <h1 class=" text-5xl font-bold relative mb-5">活动详情</h1>
+                <div class="w-[38rem] mt-5 text-lg">
+                    由多个工作室联合举办的为期2月的开源操作系统训练营活动，为对计算机底层感兴趣的同学提供一个学习平台。无论你是否接触过体系结构的项目，你能通过这个活动了解到你是否喜欢它，是否可能继续研究它。如果你已经计划走向计算机科学家的道路，那通过这个活动，你能积累更多知识，找到志同道合的伙伴。你亦可以通过参与举办这次活动的工作室的招新，成为多个工作室的成员。
                 </div>
-                <img src="@/assets/img/chat.jpg" alt="" width="400px" class=" rounded-md ml-2"></div>
+                <div class="w-[38rem] mt-2 text-lg">
+                    活动本身取自清华大学面向社会的开源操作系统训练营，题目来自于清华大学计算机学院以及叉院的lab。意在推广清华大学的开源活动，已得到举办老师的支持。</div>
+                <!-- <div class="text-xl mt-2">9.25-10.19 : rust学习</div>
+                        <div class="text-xl mt-2">10.20-11.19 : rcore实验</div> -->
+                <div class=" text-3xl font-bold mt-10">- Github<a href="https://github.com/uestc-workshop-os-camp"
+                        class="border-b-2 hover:text-slate-200">报名链接</a></div>
+                <div class=" text-2xl mt-5 font-bold">- 官方QQ群：735598360</div>
+            </div>
+            <img src="/img/chat.jpg" alt="" width="250px" class="rounded-md ml-2">
+        </div>
 
     </div>
 
     <!-- 工作室页面 -->
-    <div class="studioPage w-full h-[500vh] bg-[#363dc2] flex items-center flex-col">
+    <div class="studioPage w-full lg:h-[500vh] bg-[#363dc2] flex items-center flex-col">
         <!-- 想做一个点击工作室logo下滑到对应位置的效果，还未实现 -->
-        <div class="content-wrap w-full h-screen flex  items-center flex-col z-0">
+        <div class="content-wrap w-full h-[40vh] lg:h-screen flex  items-center flex-col z-0">
             <h1 class=" text-white text-5xl font-bold mb-16 mt-20">成员工作室</h1>
             <div class="flex mt-24">
                 <!-- 一路 -->
                 <div class="studioLogo flex flex-col justify-center items-center">
-                    <div class=" ml-5 mr-5 min-w-[100px]"><img src='../assets/img/studio/yilu/logo.jpg'
-                            class="rounded-full" width="250px"></div>
+                    <div class=" ml-5 mr-5 min-w-[100px]"><img src='/img/studio/yilu/logo.jpg' class="rounded-full"
+                            width="250px"></div>
                     <a href="#yilu" class="content__link text-white font-lg text-2xl mt-10">一路工作室</a>
                 </div>
                 <!-- 微光 -->
                 <div class="studioLogo flex flex-col justify-center items-center">
-                    <div class=" ml-5 mr-5 min-w-[100px]"><img src='../assets/img/studio/glimmer/logo.png'
-                            class="rounded-full" width="250px"></div>
+                    <div class=" ml-5 mr-5 min-w-[100px]"><img src='/img/studio/glimmer/logo.png' class="rounded-full"
+                            width="250px"></div>
                     <a href="#weiguang" class="content__link text-white font-lg text-2xl mt-10">微光工作室</a>
                 </div>
                 <!-- yolo -->
                 <div class="studioLogo flex flex-col justify-center items-center">
-                    <div class=" ml-5 mr-5 min-w-[100px]"><img src='../assets/img/studio/yolo/logo.jpg'
-                            class="rounded-full" width="250px"></div>
+                    <div class=" ml-5 mr-5 min-w-[100px]"><img src='/img/studio/yolo/logo.jpg' class="rounded-full"
+                            width="250px"></div>
                     <a href="#yolo" class="content__link text-white font-lg text-2xl mt-10">YOLO工作室</a>
                 </div>
                 <!-- 嵌入式 -->
                 <div class="studioLogo flex flex-col justify-center items-center">
-                    <div class=" ml-5 mr-5 min-w-[100px]"><img src='../assets/img/studio/embedded/logo.jpg'
-                            class="rounded-full" width="250px"></div>
+                    <div class=" ml-5 mr-5 min-w-[100px]"><img src='/img/studio/embedded/logo.jpg' class="rounded-full"
+                            width="250px"></div>
                     <a href="#qianrushi" class="content__link text-white font-lg text-2xl mt-10">嵌入式工作室</a>
                 </div>
             </div>
         </div>
         <!-- 一路 -->
-        <!-- <div id="yilu"
-            class="content-wrap yilu w-3/4 h-screen p-20 bg-transparent text-white flex justify-center items-center mt-10 text-right"
-            style="clip-path: url(#loginSvg);">
-            <div class="studioText mr-16">
-                <div class=" flex justify-between items-center">
-                    <a :href=introducionYilu.website class="text-xl h-8 ml-6 border-b-2 hover:text-slate-300">官网访问</a>
-                    <h2 class=" font-bold text-5xl mb-6">{{ introducionYilu.name }}</h2>
-                </div>
-                <div class="mb-4 text-lg">{{ introducionYilu.data1 }}</div>
-                <div class="mb-4 text-lg">{{ introducionYilu.data2 }}</div>
-                <div class="mb-4 text-xl">{{ introducionYilu.data3 }}</div>
-            </div>
-            <div class="studioPic"><img :src=introducionYilu.pic1Src alt="" width="2000px"></div>
-        </div> -->
         <div id="yilu"
-            class="content-wrap yilu w-3/4 h-screen p-20 bg-transparent text-white flex justify-center items-center"
+            class="content-wrap yilu w-full lg:w-3/4 h-[40vh] lg:h-screen p-20 bg-transparent text-white flex justify-center items-center"
             style="clip-path: url(#loginSvg);">
-            <el-card class="box-card w-full min-h-[80vh]">
+            <el-card class="box-card w-full lg:min-h-[80vh] min-h-[30vh]">
                 <div class="studioText">
                     <div class="flex justify-between items-center">
                         <a :href="introducionYilu.website"
                             class="text-xl h-8 ml-6 border-b-2 hover:text-slate-300">官网访问</a>
                         <h2 class="font-bold text-5xl mb-6">
-                            <span
-                                style="background-image: linear-gradient(to right top, #89ffff, #63b8f8);background-clip: text; color: transparent;">
+                            <span :class="{ gradient: viewWidth > 980 }">
                                 {{ introducionYilu.name }}</span>
                             🥏
                         </h2>
@@ -129,26 +117,26 @@
                 <!-- 折叠面板组件 -->
                 <el-collapse v-model="yiluActiveNames" accordion="true">
                     <el-collapse-item title="工作室简介🪁" name="1">
-                        <div class="mb-4 text-lg flex">
+                        <div class="ml-4 text-lg flex">
                             {{ introducionYilu.data1 }}
                         </div>
                     </el-collapse-item>
                     <el-collapse-item title="工作室文化🎯" name="2">
-                        <div class="mb-4 text-lg">{{ introducionYilu.data2 }}</div>
+                        <div class="ml-4  text-lg">{{ introducionYilu.data2 }}</div>
                     </el-collapse-item>
                     <el-collapse-item title="研究方向🧐" name="3">
-                        <div class="mb-4 text-xl">{{ introducionYilu.data3 }}</div>
+                        <div class="ml-4 text-xl">{{ introducionYilu.data3 }}</div>
                     </el-collapse-item>
                     <el-collapse-item title="项目成果✨" name="4">
-                        <div class="mb-4 text-lg">{{ introducionYilu.data4 }}</div>
+                        <div class="ml-4 text-lg">{{ introducionYilu.data4 }}</div>
                     </el-collapse-item>
                 </el-collapse>
 
                 <div class="studioPic flex justify-evenly p-4">
-                    <img :src="introducionYilu.pic1Src" alt=""
+                    <img :src="introducionYilu.pic1Src" alt="111"
                         class="rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
                         style="width: 30%; height: auto;">
-                    <img :src="introducionYilu.pic2Src" alt=""
+                    <img :src="introducionYilu.pic2Src" alt="1111"
                         class="rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
                         style="width: 30%; height: auto;">
                     <!-- <img :src="introducionYilu.pic1Src" alt=""
@@ -158,35 +146,16 @@
             </el-card>
         </div>
         <!-- 微光 -->
-        <!-- <div id="weiguang"
-            class="content-wrap glimmer w-3/4 h-screen p-20 bg-transparent text-white flex justify-center items-center mt-10 text-left"
-            style="clip-path: url(#loginSvg);">
-            <div class="studioPic">
-                <img :src=introducionGlimmer.pic1Src alt="" width="2000px">
-                <img :src=introducionGlimmer.pic2Src alt="" width="2000px">
-            </div>
-            <div class="studioText ml-16">
-                <div class="flex justify-between items-center">
-                    <h2 class=" font-bold text-5xl mb-6">{{ introducionGlimmer.name }}</h2>
-                    <a :href=introducionGlimmer.website
-                        class="text-xl h-8 mr-6 border-b-2 hover:text-slate-300">官网访问</a>
-                </div>
-                <div class="mb-4 text-lg">{{ introducionGlimmer.data1 }}</div>
-                <div class="mb-4 text-lg">{{ introducionGlimmer.data2 }}</div>
-                <div class="mb-4 text-lg">{{ introducionGlimmer.data3 }}</div>
-            </div>
-        </div> -->
         <div id="weiguang"
-            class="content-wrap glimmer w-3/4 h-screen p-20 bg-transparent text-white flex justify-center items-center text-left"
+            class="content-wrap glimmer w-full lg:w-3/4 h-[40vh] lg:h-screen  p-20 bg-transparent text-white flex justify-center items-center text-left"
             style="clip-path: url(#loginSvg);">
-            <el-card class="box-card w-full min-h-[80vh]">
+            <el-card class="box-card w-full  lg:min-h-[80vh] min-h-[30vh]">
                 <div class="studioText">
                     <div class="flex justify-between items-center">
                         <a :href="introducionGlimmer.website"
                             class="text-xl h-8 ml-6 border-b-2 hover:text-slate-300">官网访问</a>
                         <h2 class="font-bold text-5xl mb-6">
-                            <span
-                                style="background-image: linear-gradient(to right top, #00b0ff, #0137ff);background-clip: text; color: transparent;">
+                            <span :class="{ gradient: viewWidth > 980 }">
                                 {{ introducionGlimmer.name }}</span>
                             ❄️
                         </h2>
@@ -196,16 +165,16 @@
                 <!-- 添加折叠面板组件 -->
                 <el-collapse v-model="weiguangActiveName" accordion>
                     <el-collapse-item title="工作室简介🪁" name="1">
-                        <div class="mb-4 text-lg">{{ introducionGlimmer.data1 }}</div>
+                        <div class="ml-4 text-lg">{{ introducionGlimmer.data1 }}</div>
                     </el-collapse-item>
                     <el-collapse-item title="工作室文化🎯" name="2">
-                        <div class="mb-4 text-lg">{{ introducionGlimmer.data2 }}</div>
+                        <div class="ml-4 text-lg">{{ introducionGlimmer.data2 }}</div>
                     </el-collapse-item>
                     <el-collapse-item title="研究方向🧐" name="3">
-                        <div class="mb-4 text-lg">{{ introducionGlimmer.data3 }}</div>
+                        <div class="ml-4 text-lg">{{ introducionGlimmer.data3 }}</div>
                     </el-collapse-item>
                     <el-collapse-item title="项目成果✨" name="4">
-                        <div class="mb-4 text-lg">{{ introducionGlimmer.data4 }}</div>
+                        <div class="ml-4 text-lg">{{ introducionGlimmer.data4 }}</div>
                     </el-collapse-item>
                 </el-collapse>
                 <div class="studioPic flex justify-evenly p-4">
@@ -216,37 +185,23 @@
                         class="rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
                         style="width: 30%; height: auto;">
                     <img :src="introducionGlimmer.pic3Src" alt=""
-                    class="rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
-                    style="width: 30%; height: auto;">
+                        class="rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
+                        style="width: 30%; height: auto;">
                 </div>
             </el-card>
         </div>
         <!-- YOLO -->
-        <!-- <div id="yolo"
-            class="content-wrap yilu w-3/4 h-screen p-20 bg-transparent text-white flex justify-center items-center mt-10 text-right"
-            style="clip-path: url(#loginSvg);">
-            <div class="studioText mr-16">
-                <div class=" flex justify-between items-center">
-                    <a :href=introducionYolo.website class="text-xl h-8 ml-6 border-b-2 hover:text-slate-300">官网访问</a>
-                    <h2 class=" font-bold text-5xl mb-6">{{ introducionYolo.name }}</h2>
-                </div>
-                <div class="mb-4 text-2xl">{{ introducionYolo.data1 }}</div>
-                <div class="mb-4 text-lg">{{ introducionYolo.data2 }}</div>
-                <div class="mb-4 text-lg">{{ introducionYolo.data3 }}</div>
-            </div>
-            <div class="studioPic"><img :src=introducionYolo.pic1Src alt="" width="1300px"></div>
-        </div> -->
+
         <div id="yolo"
-            class="content-wrap yilu w-3/4 h-screen p-20 bg-transparent text-white flex justify-center items-center"
+            class="content-wrap yilu w-full lg:w-3/4 h-[40vh] lg:h-screen  p-20 bg-transparent text-white flex justify-center items-center"
             style="clip-path: url(#loginSvg);">
-            <el-card class="box-card w-full min-h-[80vh]">
+            <el-card class="box-card w-full lg:min-h-[80vh] min-h-[30vh]">
                 <div class="studioText">
                     <div class="flex justify-between items-center">
                         <a :href="introducionYolo.website"
                             class="text-xl h-8 ml-6 border-b-2 hover:text-slate-300">官网访问</a>
                         <h2 class="font-bold text-5xl mb-6">
-                            <span
-                                style="background-image: linear-gradient(to right top,#8fd3f4, #84fab0);background-clip: text; color: transparent;">
+                            <span :class="{ gradient: viewWidth > 980 }">
                                 {{ introducionYolo.name }}</span>
                             🍀
                         </h2>
@@ -256,16 +211,16 @@
                 <!-- 折叠面板组件 -->
                 <el-collapse v-model="yoloActiveNames" accordion="true">
                     <el-collapse-item title="工作室简介🪁" name="1">
-                        <div class="mb-4 text-lg">{{ introducionYolo.data1 }}</div>
+                        <div class="ml-4 text-lg">{{ introducionYolo.data1 }}</div>
                     </el-collapse-item>
                     <el-collapse-item title="工作室文化🎯" name="2">
-                        <div class="mb-4 text-lg">{{ introducionYolo.data2 }}</div>
+                        <div class="ml-4 text-lg">{{ introducionYolo.data2 }}</div>
                     </el-collapse-item>
                     <el-collapse-item title="研究方向🧐" name="3">
-                        <div class="mb-4 text-xl">{{ introducionYolo.data3 }}</div>
+                        <div class="ml-4 text-xl">{{ introducionYolo.data3 }}</div>
                     </el-collapse-item>
                     <el-collapse-item title="项目成果✨" name="4">
-                        <div class="mb-4 text-lg">{{ introducionYolo.data4 }}</div>
+                        <div class="ml-4 text-lg">{{ introducionYolo.data4 }}</div>
                     </el-collapse-item>
                 </el-collapse>
 
@@ -283,34 +238,16 @@
             </el-card>
         </div>
         <!-- 嵌入式 -->
-        <!-- <div id="qianrushi"
-            class="content--related embedded w-3/4 h-screen p-20 bg-transparent text-white flex justify-center items-center mt-10 text-left"
-            style="clip-path: url(#loginSvg);">
-            <div class="studioPic">
-                <img :src=introducionEmbedded.pic1Src alt="" width="2000px">
-            </div>
-            <div class="studioText ml-16">
-                <div class="flex justify-between items-center">
-                    <h2 class=" font-bold text-5xl mb-6">{{ introducionEmbedded.name }}</h2>
-                    <a :href=introducionEmbedded.website
-                        class="text-xl h-8 mr-6 border-b-2 hover:text-slate-300">官网访问</a>
-                </div>
-                <div class="mb-4 text-lg">{{ introducionEmbedded.data1 }}</div>
-                <div class="mb-4 text-lg">{{ introducionEmbedded.data2 }}</div>
-                <div class="mb-4 text-lg">{{ introducionEmbedded.data3 }}</div>
-            </div>
-        </div> -->
         <div id="qianrushi"
-            class="content--related  embedded w-3/4 h-screen p-20 bg-transparent text-white flex justify-center items-center"
+            class="content--related  embedded w-full lg:w-3/4 h-[40vh] lg:h-screen  p-20 bg-transparent text-white flex justify-center items-center"
             style="clip-path: url(#loginSvg);">
-            <el-card class="box-card w-full min-h-[80vh]">
+            <el-card class="box-card w-full lg:min-h-[80vh] min-h-[30vh]">
                 <div class="studioText">
                     <div class="flex justify-between items-center">
                         <a :href="introducionEmbedded.website"
                             class="text-xl h-8 ml-6 border-b-2 hover:text-slate-300">官网访问</a>
-                            <h2 class="font-bold text-5xl mb-6">
-                            <span
-                                style="background-image: linear-gradient(to right top,#667eea, #764ba2);background-clip: text; color: transparent;">
+                        <h2 class="font-bold text-5xl mb-6">
+                            <span :class="{ gradient: viewWidth > 980 }">
                                 {{ introducionEmbedded.name }}</span>
                             ⚙️
                         </h2>
@@ -319,16 +256,16 @@
 
                 <el-collapse v-model="qianrushiActiveNames" accordion="true">
                     <el-collapse-item title="工作室简介🪁" name="1">
-                        <div class="mb-4 text-lg">{{ introducionEmbedded.data1 }}</div>
+                        <div class="ml-4 text-lg">{{ introducionEmbedded.data1 }}</div>
                     </el-collapse-item>
                     <el-collapse-item title="工作室文化🎯" name="2">
-                        <div class="mb-4 text-lg">{{ introducionEmbedded.data2 }}</div>
+                        <div class="ml-4 text-lg">{{ introducionEmbedded.data2 }}</div>
                     </el-collapse-item>
                     <el-collapse-item title="研究方向🧐" name="3">
-                        <div class="mb-4 text-xl">{{ introducionEmbedded.data3 }}</div>
+                        <div class="ml-4 text-xl">{{ introducionEmbedded.data3 }}</div>
                     </el-collapse-item>
                     <el-collapse-item title="项目成果✨" name="4">
-                        <div class="mb-4 text-lg">{{ introducionEmbedded.data4 }}</div>
+                        <div class="ml-4 text-lg">{{ introducionEmbedded.data4 }}</div>
                     </el-collapse-item>
                 </el-collapse>
 
@@ -356,7 +293,11 @@
 import { reactive, onMounted, ref } from 'vue';
 import { demo1 } from '../utils/animate/demo1.js'
 // const router = useRouter()
+const viewWidth = ref(760)
 onMounted(() => {
+    viewWidth.value = window.innerWidth
+    console.log("viewWidth: " + viewWidth.value)
+
     demo1()
     document.addEventListener('wheel', scrollHandler, { passive: false })
 })
@@ -380,17 +321,16 @@ function scrollHandler(event) {
             if (pageNow.value < pageNum) { pageNow.value++ }
         }
         setTimeout(() => { resolve() }, 500)
-    }).then(() => { isScrolling = false;})
+    }).then(() => { isScrolling = false; })
 };
-function scrollDown()
-{
+function scrollDown() {
     if (isScrolling == true) { return }
     isScrolling = true
     new Promise((resolve) => {
         window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
         if (pageNow.value < pageNum) { pageNow.value++ }
         setTimeout(() => { resolve() }, 500)
-    }).then(() => { isScrolling = false;})
+    }).then(() => { isScrolling = false; })
 }
 
 // const studioLogo = reactive({
@@ -405,10 +345,10 @@ const introducionYilu = reactive({
     data1: '于2016年底正式成立，由戴瑞婷老师负责组建。工作室成立之初下属于学工部，服务于学院的各种需求而开发对应的Web系统，后归属于创新工坊，在服务于学院的同时参加各种比赛。',
     data2: '一路是一个自由的工作室，同学们收获知识共同进步，交流有关学习生活等等事情，还有许多特别热情且乐于助人的学长学姐，刚进入工作室的新同学也能快速融入。一路大家庭欢迎各类同学加入，如果你想要与优秀的同学共同勉励，一路会是你的不二之选。',
     data3: '工作室研究方向：前端 后端 机器学习 \n 工作室地点：沙河校区第三教学楼401',
-    data4:'我们工作室的主要研究方向是Web系统开发，主要是前后端开发，其中包括前端Serverless，流量优化，防抖动策略，懒加载策略的研究等，后端则是关于高并发，微服务的研究。但我们又不局限于Web系统，微信小程序，10S开发也有所涉及和研究。 同时我们拓展了机器学习方向，提供学习资源，项目资源以及科研资源，欢迎大家的加入。 到目前为止，工作室接手过创新项目院级项目11项，校级项目8项。其中Web项目9 项，微信小程序6项。如智能助困系统，高校督导系统，成绩发布系统，舌尖沙河，活动预约系统。',
+    data4: '我们工作室的主要研究方向是Web系统开发，主要是前后端开发，其中包括前端Serverless，流量优化，防抖动策略，懒加载策略的研究等，后端则是关于高并发，微服务的研究。但我们又不局限于Web系统，微信小程序，10S开发也有所涉及和研究。 同时我们拓展了机器学习方向，提供学习资源，项目资源以及科研资源，欢迎大家的加入。 到目前为止，工作室接手过创新项目院级项目11项，校级项目8项。其中Web项目9 项，微信小程序6项。如智能助困系统，高校督导系统，成绩发布系统，舌尖沙河，活动预约系统。',
     website: '#',
-    pic1Src: 'src/assets/img/studio/yilu/pic1.jpg',
-    pic2Src: 'src/assets/img/studio/yilu/pic2.png',
+    pic1Src: '/img/studio/yilu/pic1.jpg',
+    pic2Src: '/img/studio/yilu/pic2.png',
 })
 
 const introducionGlimmer = reactive({
@@ -416,11 +356,11 @@ const introducionGlimmer = reactive({
     data1: '成立于 2012 年，前身“微软创新工作室”、“黑色之光工作室”。团队立足 IT 基础与底层架构相关技术，面向兴趣和前沿应用方向扩展，是技术氛围最浓厚、团队联系最紧密的工作室之一。',
     data2: '“心有微光，不惧黑暗”是我们的口号，也是微光工作室在发展中始终贯彻的信条。秉持“兴趣驱动，自由发展”的理念，我们乐于接收对不同技术方向感兴趣的朋友，善于探求未知的技术领域。工作室由一群热爱技术的 Geek 组成，力图召集志同道合，敢于创新的伙伴们共同拼搏，挑战自我。\n微光工作室技术氛围浓厚，学期内定期组织多场技术相关分享会活动，由工作室内有相关研究经验的同学对某项技术主题展开专题分享，激发工作室成员在相关领域的学习热情。针对成员的学习需求，工作室还不定期组织项目学习和任务指导，供成员自由学习参考。',
     data3: '作为研究氛围最自由的工作室之一，微光工作室并不限制团队成员的技术方向，而是鼓励成员以兴趣导向的积极进步寻找适合自己的领域。经过多年发展，工作室当前形成了以 IT 基础架构领域为中心的团队技术方向，并辅以上层应用和前沿领域技术推进，同时鼓励百花齐放的路线创新。\n目前团队在校成员在 OS 内核、云计算、编译技术、硬件设计、SDN 等方向均有研究进展与项目实现，毕业成员也多投身基础架构相关岗位和研究领域。除此之外，团队也拥有应用层web 开发、机器学习等成熟的技术组与培养路线，欢迎不同技术方向的同学与我们共同进步。',
-    data4:'近期成果奖项：2022中国高校计算机大赛-网络技术挑战赛区域赛一等奖、国家级一等奖 2020 中国高校计算机大赛-网络技术挑战赛区域赛一等奖、国家级二等奖；2021 中国高校计算机大赛-网络技术挑战赛区域赛一等奖、国家级三等奖;    第十三届服务外部创新创业大赛西部区域赛一等奖、国家级二等奖；第十四届服务外部创新创业大赛西部区域赛一等奖、国家级三等奖;第十六届中国大学生计算机设计大赛 省级二等奖 x 1、省级三等奖 x 1;第十三、十四届蓝桥杯信息技术产业人才大赛 省级二等奖 x 2 + 省级三等奖 x 2;2021 中国高校计算机大赛-微信小程序应用开发赛区域一等奖、国家级三等奖;2020 中国高校计算机大赛-微信小程序应用开发赛区域二等奖',
+    data4: '近期成果奖项：2022中国高校计算机大赛-网络技术挑战赛区域赛一等奖、国家级一等奖 2020 中国高校计算机大赛-网络技术挑战赛区域赛一等奖、国家级二等奖；2021 中国高校计算机大赛-网络技术挑战赛区域赛一等奖、国家级三等奖;    第十三届服务外部创新创业大赛西部区域赛一等奖、国家级二等奖；第十四届服务外部创新创业大赛西部区域赛一等奖、国家级三等奖;第十六届中国大学生计算机设计大赛 省级二等奖 x 1、省级三等奖 x 1;第十三、十四届蓝桥杯信息技术产业人才大赛 省级二等奖 x 2 + 省级三等奖 x 2;2021 中国高校计算机大赛-微信小程序应用开发赛区域一等奖、国家级三等奖;2020 中国高校计算机大赛-微信小程序应用开发赛区域二等奖',
     website: '#',
-    pic1Src: 'src/assets/img/studio/glimmer/pic1.png',
-    pic2Src: 'src/assets/img/studio/glimmer/pic2.png',
-    pic3Src: 'src/assets/img/studio/glimmer/pic3.png',
+    pic1Src: '/img/studio/glimmer/pic1.png',
+    pic2Src: '/img/studio/glimmer/pic2.png',
+    pic3Src: '/img/studio/glimmer/pic3.png',
 })
 
 const introducionYolo = reactive({
@@ -428,11 +368,11 @@ const introducionYolo = reactive({
     data1: '着眼当下，我们欢迎任何充满活力与创新力的新血液',
     data2: '指导老师：江维、詹瑾瑜；2021，2020，2019，2018级的众多优秀学长的亲自带领；三教403专属工位，除图书馆或者教室的又一选择；实习内推，就业指导，科研指路，你需要的，我们都有',
     data3: '成员风格各异，自由成长不受限，只要你能保持活力，无论是web开发，还是嵌入式底层研发，又或者海外留学与科研，总能绽放属于自己的光芒',
-    data4:'主要科研项目：嵌入式AI与可信AI。工作室在智能嵌入式系统领域，发表了一系列高水平学术论文：“解决工业信息物理系统DNN安全性分层保护难题”，“提出DNN对抗强度和类型感知的检测防御方法”，“指出可解释驱动的DNN后门攻击防御方法”，“提出抗模型权重扰动的激活上界感知DNN容错方法”，“提出针对大数据存储节点的CPU-FPGA协同加速方法”等',
+    data4: '主要科研项目：嵌入式AI与可信AI。工作室在智能嵌入式系统领域，发表了一系列高水平学术论文：“解决工业信息物理系统DNN安全性分层保护难题”，“提出DNN对抗强度和类型感知的检测防御方法”，“指出可解释驱动的DNN后门攻击防御方法”，“提出抗模型权重扰动的激活上界感知DNN容错方法”，“提出针对大数据存储节点的CPU-FPGA协同加速方法”等',
     website: '#',
-    pic1Src: 'src/assets/img/studio/yolo/pic1.jpg',
-    pic2Src: 'src/assets/img/studio/yolo/pic2.png',
-    pic3Src: 'src/assets/img/studio/yolo/pic3.png',
+    pic1Src: '/img/studio/yolo/pic1.jpg',
+    pic2Src: '/img/studio/yolo/pic2.png',
+    pic3Src: '/img/studio/yolo/pic3.png',
 })
 
 const introducionEmbedded = reactive({
@@ -442,9 +382,9 @@ const introducionEmbedded = reactive({
     data3: '嵌入式工作室现在每届约为二十人，我们在三教整个404以及部分405，为工作室成员提供良好的嵌入式开发环境，通过竞赛与项目来提升自己，带你深入了解计算机体系架构，从无到有的创造，从一块芯片到一个四轴飞行器，从一块开发板到一个自动避障小车，裁剪内核，定制系统。',
     data4: '巡线四轴无人机、Makepander太极熊创客教育、基于微信小程序的弹幕式课堂互动助手、智能枕芯项目等',
     website: '#',
-    pic1Src: 'src/assets/img/studio/embedded/pic1.png',
-    pic2Src: 'src/assets/img/studio/embedded/pic2.png',
-    pic3Src: 'src/assets/img/studio/embedded/pic3.png',
+    pic1Src: '/img/studio/embedded/pic1.png',
+    pic2Src: '/img/studio/embedded/pic2.png',
+    pic3Src: '/img/studio/embedded/pic3.png',
 })
 
 // 工作室介绍折叠面板
@@ -453,15 +393,39 @@ const weiguangActiveName = ref('1')
 const yoloActiveNames = ref('1')
 const qianrushiActiveNames = ref('1')
 </script>
-
 <style>
-.el-card{
-    background-color: rgba(255, 255, 255, 0.7) !important;
+.el-card {
+    background-color: rgba(0, 0, 0, 0.08) !important;
     border: hidden !important;
-}
-.el-collapse{
-    --el-collapse-header-bg-color:rgba(255, 255, 255, 0.4) !important;
-    --el-collapse-content-bg-color:rgba(255, 255, 255, 0.4) !important;
+    color: white !important;
 }
 
+.el-collapse {
+    --el-collapse-header-bg-color: rgba(0, 0, 0, 0.02) !important;
+    --el-collapse-content-bg-color: rgba(0, 0, 0, 0.02) !important;
+    border-bottom: hidden !important;
+}
+
+.el-collapse-item {
+    button {
+        color: white !important;
+    }
+
+    .el-collapse-item__content {
+        color: white !important;
+    }
+
+    .el-collapse-item__header {
+        font-size: 18px !important;
+
+        border-bottom: hidden !important;
+    }
+}
+
+.gradient {
+    background-image: linear-gradient(to right top, #89ffff, #63b8f8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
 </style>

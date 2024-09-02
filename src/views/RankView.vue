@@ -1,25 +1,30 @@
 <template>
   <!-- 排行榜头部 -->
   <div class="rankHeader w-full h-[130px] bg-white border-solid border flex">
-    <img src="@/assets/img/logo.png" alt="" class="z-10 absolute top-1 left-4 w-[165px]">
+    <img src="/img/logo.png" alt="" class="z-10 absolute top-1 left-4 w-[165px]">
     <!-- 用户头像 -->
     <div class="myRepo absolute right-14 top-10 flex items-center">
-      <div>hello, {{ userName }}</div>
+      <div>
+        <el-button @click="returnHome">
+          返回主页
+        </el-button>
+      </div>
       <img class="rounded-full ml-5 hover:scale-110" :src="userAvatar" width="55px">
     </div>
   </div>
   <!-- 切换阶段 -->
-  <div class="w-[30vw] ml-[35vw]">
+  <div class="w-[50vw] ml-[35vw]">
     <div class=" w-full flex mt-4  justify-between">
       <el-switch v-model="isPhaseTwo" active-text="阶段二" inactive-text="阶段一" @change="togglePhase"></el-switch>
       <el-input v-if="isPhaseTwo" v-model="search" size="default" placeholder="搜索用户名" style="width: 240px" />
     </div>
   </div>
   <!-- 排行榜部分 -->
-  <!-- 阶段一 -->
+
   <div class="w-full flex items-center flex-col">
-    <div v-if="!isPhaseTwo" class="w-3/4">
-      <el-table :data="filterTableData" stripe row-class-name="h-14" height="450">
+    <!-- 阶段一 -->
+    <div v-if="!isPhaseTwo" class="lg:w-3/4 w-full ">
+      <el-table :data="filterTableData" stripe row-class-name="h-14" :height="height">
         <el-table-column type="index" label="排名" width="80" />
         <el-table-column prop="username" label="用户" width="200">
           <template #default="scope">
@@ -39,9 +44,10 @@
         </el-table-column>
       </el-table>
     </div>
+    <!-- 阶段二 -->
     <div v-else class="w-full">
       <!-- 阶段二 -->
-      <el-table :data="filterTableData" stripe row-class-name="h-14" height="450">
+      <el-table :data="filterTableData" stripe row-class-name="h-14" :height="height">
         <el-table-column type="index" label="排名" width="80" />
         <el-table-column prop="username" label="用户" width="200">
           <template #default="scope">
@@ -71,7 +77,14 @@
 <script setup>
 import { ref, reactive, watch, onMounted, computed } from 'vue'
 import { get } from '../request/index.js'
-
+import { useRouter } from 'vue-router';
+const router = useRouter()
+// 表格固定高度:
+const height = ref(450)
+// 返回主页
+const returnHome = () => {
+  router.push('/home')
+}
 // 用户数据
 const tableData = ref([])
 // 搜索框内容
@@ -139,21 +152,21 @@ const pageChange = (page) => {
 }
 
 // 监听当前页面变化
-watch(pageNow, async (newValue, oldValue) => {
-  console.log(`old is ${oldValue}, new is ${newValue}`)
+watch(pageNow, async () => {
   await fetchData()
 })
 
 // 计算过滤后的表格数据
 const filterTableData = computed(() =>
   tableData.value.filter((data) => {
-    console.log(data)
     return !search.value || data.username.toLowerCase().includes(search.value.toLowerCase())
   })
 )
 
 // 组件挂载时获取数据
 onMounted(async () => {
+  let viewheight = window.innerHeight
+  height.value = viewheight - 300
   await fetchData()
 })
 </script>

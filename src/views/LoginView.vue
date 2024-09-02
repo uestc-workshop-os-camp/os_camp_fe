@@ -1,7 +1,7 @@
 <template>
     <!-- 壁纸 -->
     <img src="@/assets/wallpaper/wallpaper1.png" alt="" class="h-screen w-screen -z-10">
-    <img src="@/assets/img/logo.png" alt="" class="z-10 absolute top-4 left-4 w-[300px]">
+    <img src="/img/logo.png" alt="" class="z-10 absolute top-4 left-4 w-[300px]">
     <!-- OS icon -->
     <div class="w-[25vw] absolute left-1/2 -translate-x-1/2 top-[18vh] z-10 flex justify-between animate_slidedown">
         <div class="" v-for="(item, index) in OS_icon" :key="index">
@@ -16,7 +16,7 @@
 
         <!-- 左侧图像部分 -->
         <div class="loginMenuLeft w-1/2 h-full">
-            <img src="@/assets/img/login.png" alt="login.png" class="object-cover h-full w-full">
+            <img src="/img/login.png" alt="login.png" class="object-cover h-full w-full">
         </div>
         <!-- 右侧表单部分 背景-->
         <div
