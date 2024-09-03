@@ -1,6 +1,6 @@
 import axios from 'axios'
 const instance = axios.create({
-    baseURL: 'http://154.8.201.61:8080',
+    baseURL: 'https://advanced.www.glimmer.org.cn',
     timeout: 2000,
 })
 // 响应拦截器
