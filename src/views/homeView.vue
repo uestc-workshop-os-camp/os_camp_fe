@@ -297,7 +297,6 @@ const viewWidth = ref(760)
 onMounted(() => {
     viewWidth.value = window.innerWidth
     console.log("viewWidth: " + viewWidth.value)
-
     demo1()
     document.addEventListener('wheel', scrollHandler, { passive: false })
 })

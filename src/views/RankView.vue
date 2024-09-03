@@ -24,7 +24,7 @@
   <div class="w-full flex items-center flex-col">
     <!-- 阶段一 -->
     <div v-if="!isPhaseTwo" class="lg:w-3/4 w-full ">
-      <el-table :data="filterTableData" stripe row-class-name="h-14" :height="height">
+      <el-table :data="tableData" stripe row-class-name="h-14" :height="height">
         <el-table-column type="index" label="排名" width="80" />
         <el-table-column prop="username" label="用户" width="200">
           <template #default="scope">
@@ -47,7 +47,7 @@
     <!-- 阶段二 -->
     <div v-else class="w-full">
       <!-- 阶段二 -->
-      <el-table :data="filterTableData" stripe row-class-name="h-14" :height="height">
+      <el-table :data="tableData" stripe row-class-name="h-14" :height="height">
         <el-table-column type="index" label="排名" width="80" />
         <el-table-column prop="username" label="用户" width="200">
           <template #default="scope">
@@ -75,15 +75,16 @@
 </template>
 
 <script setup>
-import { ref, reactive, watch, onMounted, computed } from 'vue'
+import { ref, reactive, watch, onMounted } from 'vue'
 import { get } from '../request/index.js'
 import { useRouter } from 'vue-router';
+
 const router = useRouter()
 // 表格固定高度:
 const height = ref(450)
 // 返回主页
 const returnHome = () => {
-  router.push('/home')
+  router.push('/')
 }
 // 用户数据
 const tableData = ref([])
@@ -109,8 +110,8 @@ const query = reactive({
 const isPhaseTwo = ref(false)
 
 // 右上方用户头像
-const userAvatar = "https://luvmand.top/img/head.png"
-const userName = "uestcer"
+const userAvatar = "/avatar.jpg"
+// const userName = "uestcer"
 
 // 时间戳修改
 function formatUnixTime(unixTime) {
@@ -156,17 +157,47 @@ watch(pageNow, async () => {
   await fetchData()
 })
 
-// 计算过滤后的表格数据
-const filterTableData = computed(() =>
-  tableData.value.filter((data) => {
-    return !search.value || data.username.toLowerCase().includes(search.value.toLowerCase())
-  })
-)
+watch(() => search.value, async () => {
+  if (query.mode == 1) {
+    //阶段一全局搜索
+    tableData.value = step1Data.value.filter((data) => {
+      return data.username.toLowerCase().includes(search.value.toLowerCase())
+    })
+  }
+  else {
+    //阶段二全局搜索
+    tableData.value = step2Data.value.filter((data) => {
+      return data.username.toLowerCase().includes(search.value.toLowerCase())
+    })
+  }
+})
+// 阶段一全部数据
+const step1Data = ref([])
+// 阶段二全部数据
+const step2Data = ref([])
 
 // 组件挂载时获取数据
 onMounted(async () => {
   let viewheight = window.innerHeight
   height.value = viewheight - 300
   await fetchData()
+  // 获取阶段一全部数据
+  const { data: step1 } = await get(`/api/scores/1/999/1`)
+  for (let item of step1) {
+    item.pass_time = formatUnixTime(item.pass_time)
+  }
+  // 修改分页选项
+  pageInfo.pageTotal = step1.length
+  step1Data.value = step1
+
+
+  // 获取阶段二全部数据
+  const { data: step2 } = await get(`/api/scores/1/999/2`)
+  for (let item of step2) {
+    item.pass_time = formatUnixTime(item.pass_time)
+  }
+  // 修改分页选项
+  pageInfo.pageTotal = step2.length
+  step2Data.value = step2
 })
 </script>

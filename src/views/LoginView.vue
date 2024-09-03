@@ -85,7 +85,7 @@ const router = useRouter()
 const OS_icon = reactive(['src/assets/svg/icon/windows.svg', 'src/assets/svg/icon/Android.svg', 'src/assets/svg/icon/HarmonyOS.svg', 'src/assets/svg/icon/Linux.svg', 'src/assets/svg/icon/macOS.svg'])
 const handleGitHubLogin = () => {
     alert('哈哈，不需要登录哦')
-    router.push('/home')
+    router.push('/')
     // GitHub OAuth URL
     // const githubOAuthURL = 'https://github.com/login/oauth/authorize';
     // // 客户端 ID
@@ -133,7 +133,7 @@ const handleGitHubLogin = () => {
 
 function login() {
     alert('哈哈，不需要登录哦')
-    router.push('/home')
+    router.push('/')
 }
 </script>
 <style scoped>
