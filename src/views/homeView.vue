@@ -28,7 +28,7 @@
 
         <!-- 首页标题 -->
         <div class="homePageTitle w-auto h-auto  bg-transparent p-1 flex justify-center">
-            <div class="content__img"><img src="/img/homePic.jpg" alt=""
+            <div class="content__img"><img src="/img/homePicNew.png" alt=""
                     class="relative left-1/5 bottom-10 z-0 shadow-2xl max-w-[350px] max-h-[350px]:"></div>
             <div class="title text-white relative left-5 z-10 w-3/4">
                 <h1 class=" font-extrabold text-7xl relative right-48 mb-4 bottom-6">操作系统开源活动</h1>
