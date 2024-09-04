@@ -31,7 +31,7 @@
             <div class="content__img"><img src="/img/homePicNew.png" alt=""
                     class="relative left-1/5 bottom-10 z-0 shadow-2xl max-w-[350px] max-h-[350px]:"></div>
             <div class="title text-white relative left-5 z-10 w-3/4">
-                <h1 class=" font-extrabold text-7xl relative right-48 mb-4 bottom-6">操作系统开源活动</h1>
+                <h1 class=" font-extrabold text-7xl relative right-35 mb-4 bottom-6">操作系统开源活动</h1>
                 <div class="content__title overflow-hidden">
                     <div class="font-bold text-3xl">你可以得到：</div>
                     <div class="font-bold text-3xl">一次触碰前沿编程语言、最新机器架构的机会</div>
@@ -356,7 +356,7 @@ const introducionGlimmer = reactive({
     data2: '“心有微光，不惧黑暗”是我们的口号，也是微光工作室在发展中始终贯彻的信条。秉持“兴趣驱动，自由发展”的理念，我们乐于接收对不同技术方向感兴趣的朋友，善于探求未知的技术领域。工作室由一群热爱技术的 Geek 组成，力图召集志同道合，敢于创新的伙伴们共同拼搏，挑战自我。\n微光工作室技术氛围浓厚，学期内定期组织多场技术相关分享会活动，由工作室内有相关研究经验的同学对某项技术主题展开专题分享，激发工作室成员在相关领域的学习热情。针对成员的学习需求，工作室还不定期组织项目学习和任务指导，供成员自由学习参考。',
     data3: '作为研究氛围最自由的工作室之一，微光工作室并不限制团队成员的技术方向，而是鼓励成员以兴趣导向的积极进步寻找适合自己的领域。经过多年发展，工作室当前形成了以 IT 基础架构领域为中心的团队技术方向，并辅以上层应用和前沿领域技术推进，同时鼓励百花齐放的路线创新。\n目前团队在校成员在 OS 内核、云计算、编译技术、硬件设计、SDN 等方向均有研究进展与项目实现，毕业成员也多投身基础架构相关岗位和研究领域。除此之外，团队也拥有应用层web 开发、机器学习等成熟的技术组与培养路线，欢迎不同技术方向的同学与我们共同进步。',
     data4: '近期成果奖项：2022中国高校计算机大赛-网络技术挑战赛区域赛一等奖、国家级一等奖 2020 中国高校计算机大赛-网络技术挑战赛区域赛一等奖、国家级二等奖；2021 中国高校计算机大赛-网络技术挑战赛区域赛一等奖、国家级三等奖;    第十三届服务外部创新创业大赛西部区域赛一等奖、国家级二等奖；第十四届服务外部创新创业大赛西部区域赛一等奖、国家级三等奖;第十六届中国大学生计算机设计大赛 省级二等奖 x 1、省级三等奖 x 1;第十三、十四届蓝桥杯信息技术产业人才大赛 省级二等奖 x 2 + 省级三等奖 x 2;2021 中国高校计算机大赛-微信小程序应用开发赛区域一等奖、国家级三等奖;2020 中国高校计算机大赛-微信小程序应用开发赛区域二等奖',
-    website: '#',
+    website: 'https://www.glimmer.org.cn/',
     pic1Src: '/img/studio/glimmer/pic1.png',
     pic2Src: '/img/studio/glimmer/pic2.png',
     pic3Src: '/img/studio/glimmer/pic3.png',
