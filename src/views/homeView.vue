@@ -15,7 +15,7 @@
 
     <!-- 首页 -->
     <div
-        class="content--layout content-wrap homePage w-full h-[50vh] lg:h-screen bg-[#363dc2] flex justify-center items-center flex-col -z-20">
+        class=" content--layout content-wrap homePage w-full h-[50vh] lg:h-screen bg-[#363dc2] flex justify-center items-center flex-col -z-20">
         <!-- 首页头部 -->
         <div class="homePageTop flex w-full min-w-20 h-8 justify-between absolute top-0">
             <RouterLink to="/rank"
@@ -30,14 +30,17 @@
         <div class="homePageTitle w-auto h-auto  bg-transparent p-1 flex justify-center">
             <div class="content__img"><img src="/img/homePicNew.png" alt=""
                     class="relative left-1/5 bottom-10 z-0 shadow-2xl max-w-[350px] max-h-[350px]:"></div>
-            <div class="title text-white relative left-5 z-10 w-3/4">
-                <h1 class=" font-extrabold text-7xl relative right-35 mb-4 bottom-6">操作系统开源活动</h1>
+            <div class=" title text-white relative left-5 z-10 w-3/4">
+                <h1 class=" font-extrabold text-7xl relative right-35 mb-4 bottom-6 animate-slideInDown">操作系统开源活动</h1>
+
                 <div class="content__title overflow-hidden">
-                    <div class="font-bold text-3xl">你可以得到：</div>
-                    <div class="font-bold text-3xl">一次触碰前沿编程语言、最新机器架构的机会</div>
-                    <div class="font-bold text-3xl">一次从零实现操作系统、培养计算机系统能力的经历</div>
-                    <div class="font-bold text-3xl">一群志同道合、共同进步的朋友</div>
-                    <div class="font-bold text-3xl mt-5"> 一路 | 微光 | YOLO | 嵌入式</div>
+                    <div class="font-bold text-3xl leading-10 animate-slideInLeft delay-75">🚀你可以得到：</div>
+                    <div class="font-bold text-3xl leading-10 animate-slideInLeft delay-150">🌟 一次触碰前沿编程语言、最新机器架构的机会
+                    </div>
+                    <div class="font-bold text-3xl leading-10 animate-slideInLeft delay-225">💻一次从零实现操作系统、培养计算机系统能力的经历
+                    </div>
+                    <div class="font-bold text-3xl leading-10 animate-slideInLeft delay-300">🤝一群志同道合、共同进步的朋友</div>
+                    <div class="font-bold text-3xl mt-5">🌈 一路 | 微光 | YOLO | 嵌入式</div>
                 </div>
 
             </div>

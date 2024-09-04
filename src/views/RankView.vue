@@ -25,8 +25,17 @@
     <!-- 阶段一 -->
     <div v-if="!isPhaseTwo" class="lg:w-3/4 w-full ">
       <el-table :data="tableData" stripe row-class-name="h-14" :height="height">
-        <el-table-column type="index" label="排名" width="80" />
-        <el-table-column prop="username" label="用户" width="200">
+        <el-table-column prop="rank" label="排名" width="80" align="center">
+          <template #default="scope">
+            <div v-if="scope.row.rank <= 3" class="flex justify-center">
+              <img :src="getRankImage(scope.row.rank)" width="30px" />
+            </div>
+            <div v-else>
+              {{ scope.row.rank }}
+            </div>
+          </template>
+        </el-table-column>
+        <el-table-column prop="username" label="用户" width="200" align="center">
           <template #default="scope">
             <div class="flex items-center justify-start flex-row">
               <img :src="scope.row.header_url" width="30px" class="rounded-full" />
@@ -34,9 +43,9 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column prop="total" label="题目总分" width="160" />
-        <el-table-column prop="points" label="得分" width="160" />
-        <el-table-column prop="pass_time" label="最后提交时间" />
+        <el-table-column prop="total" label="题目总分" width="160" align="center" />
+        <el-table-column prop="points" label="得分" width="160" align="center" />
+        <el-table-column prop="pass_time" label="最后提交时间" align="center" />
         <el-table-column align="right">
           <template #header>
             <el-input v-model="search" size="default" placeholder="搜索用户名" />
@@ -48,8 +57,17 @@
     <div v-else class="w-full">
       <!-- 阶段二 -->
       <el-table :data="tableData" stripe row-class-name="h-14" :height="height">
-        <el-table-column type="index" label="排名" width="80" />
-        <el-table-column prop="username" label="用户" width="200">
+        <el-table-column prop="rank" label="排名" width="80" align="center">
+          <template #default="scope">
+            <div v-if="scope.row.rank <= 3" class="flex justify-center">
+              <img :src="getRankImage(scope.row.rank)" width="30px" />
+            </div>
+            <div v-else>
+              {{ scope.row.rank }}
+            </div>
+          </template>
+        </el-table-column>
+        <el-table-column prop="username" label="用户" width="200" align="center">
           <template #default="scope">
             <div class="flex items-center justify-start flex-row">
               <img :src="scope.row.header_url" width="30px" class="rounded-full" />
@@ -57,20 +75,26 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column prop="total" label="总分" width="160" />
-        <el-table-column prop="ch3" label="ch3" width="160" />
-        <el-table-column prop="ch4" label="ch4" width="160" />
-        <el-table-column prop="ch5" label="ch5" width="160" />
-        <el-table-column prop="ch6" label="ch6" width="160" />
-        <el-table-column prop="ch8" label="ch8" width="160" />
-        <el-table-column prop="pass_time" label="最后提交时间" />
+        <el-table-column prop="total" label="总分" width="160" align="center"/>
+        <el-table-column prop="ch3" label="ch3" width="160" align="center"/>
+        <el-table-column prop="ch4" label="ch4" width="160" align="center"/>
+        <el-table-column prop="ch5" label="ch5" width="160" align="center"/>
+        <el-table-column prop="ch6" label="ch6" width="160" align="center"/>
+        <el-table-column prop="ch8" label="ch8" width="160" align="center"/>
+        <el-table-column prop="pass_time" label="最后提交时间" align="center" />
       </el-table>
     </div>
+    <!-- 用户选择分页大小 -->
+    <div class="flex justify-center ">
+      <el-select v-model="pageInfo.pageSize" @change="onPageSizeChange" class="mt-6 w-[10vw]" placeholder="选择每页条目数">
+        <el-option v-for="size in pageSizes" :key="size" :label="size" :value="size"></el-option>
+      </el-select>
+      <!-- 排行榜分页选项 -->
+      <el-pagination class="flex justify-center mt-6" layout="prev, pager, next" :page-size="pageInfo.pageSize"
+        :pager-count="pageInfo.pageCount" :current-page="pageNow.value" :total="pageInfo.pageTotal"
+        @current-change="pageChange($event)" />
+    </div>
 
-    <!-- 排行榜分页选项 -->
-    <el-pagination class="flex justify-center mt-6" layout="prev, pager, next" :page-size="pageInfo.pageSize"
-      :pager-count="pageInfo.pageCount" :current-page="pageNow.value" :total="pageInfo.pageTotal"
-      @current-change="pageChange($event)" />
   </div>
 </template>
 
@@ -98,6 +122,14 @@ const pageInfo = reactive({
   pageCount: 5, // 选项数量
   pageTotal: 200, // 数据总量
 })
+const pageSizes = [10, 20, 50, 100]; // 可选的分页大小
+const onPageSizeChange = (size) => {
+  console.log(size)
+  pageInfo.pageSize = size; // 更新分页大小
+  query.page_num = size
+  pageNow.value = 1; // 重置到第一页
+  fetchData(); // 重新获取数据
+};
 
 // 初始化请求参数
 const query = reactive({
@@ -111,7 +143,6 @@ const isPhaseTwo = ref(false)
 
 // 右上方用户头像
 const userAvatar = "/avatar.jpg"
-// const userName = "uestcer"
 
 // 时间戳修改
 function formatUnixTime(unixTime) {
@@ -200,4 +231,22 @@ onMounted(async () => {
   pageInfo.pageTotal = step2.length
   step2Data.value = step2
 })
+// 前三名显示图标
+const getRankImage = (rank) => {
+  switch (rank) {
+    case 1:
+      return '/img/rank/gold.png';
+    case 2:
+      return '/img/rank/sliver.png';
+    case 3:
+      return '/img/rank/blonze.png';
+    default:
+      return '/'
+  }
+}
 </script>
+<style>
+.el-select__wrapper {
+  width: 100px;
+}
+</style>
