@@ -33,10 +33,10 @@
             <div class="title text-white relative left-5 z-10 w-3/4">
                 <h1 class=" font-extrabold text-7xl relative right-48 mb-4 bottom-6">操作系统开源活动</h1>
                 <div class="content__title overflow-hidden">
-                    <div class="font-bold text-3xl">UESTC OS Activity #2024</div>
-                    <div class="font-bold text-3xl">UESTC OS Activity #2024</div>
-                    <div class="font-bold text-3xl">UESTC OS Activity #2024</div>
-                    <div class="font-bold text-3xl">UESTC OS Activity #2024</div>
+                    <div class="font-bold text-3xl">你可以得到：</div>
+                    <div class="font-bold text-3xl">一次触碰前沿编程语言、最新机器架构的机会</div>
+                    <div class="font-bold text-3xl">一次从零实现操作系统、培养计算机系统能力的经历</div>
+                    <div class="font-bold text-3xl">一群志同道合、共同进步的朋友</div>
                     <div class="font-bold text-3xl mt-5"> 一路 | 微光 | YOLO | 嵌入式</div>
                 </div>
 
