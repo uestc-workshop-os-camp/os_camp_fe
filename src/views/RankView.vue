@@ -75,12 +75,12 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column prop="total" label="总分" width="160" align="center"/>
-        <el-table-column prop="ch3" label="ch3" width="160" align="center"/>
-        <el-table-column prop="ch4" label="ch4" width="160" align="center"/>
-        <el-table-column prop="ch5" label="ch5" width="160" align="center"/>
-        <el-table-column prop="ch6" label="ch6" width="160" align="center"/>
-        <el-table-column prop="ch8" label="ch8" width="160" align="center"/>
+        <el-table-column prop="total" label="总分" width="160" align="center" />
+        <el-table-column prop="ch3" label="ch3" width="160" align="center" />
+        <el-table-column prop="ch4" label="ch4" width="160" align="center" />
+        <el-table-column prop="ch5" label="ch5" width="160" align="center" />
+        <el-table-column prop="ch6" label="ch6" width="160" align="center" />
+        <el-table-column prop="ch8" label="ch8" width="160" align="center" />
         <el-table-column prop="pass_time" label="最后提交时间" align="center" />
       </el-table>
     </div>
@@ -124,7 +124,6 @@ const pageInfo = reactive({
 })
 const pageSizes = [10, 20, 50, 100]; // 可选的分页大小
 const onPageSizeChange = (size) => {
-  console.log(size)
   pageInfo.pageSize = size; // 更新分页大小
   query.page_num = size
   pageNow.value = 1; // 重置到第一页
@@ -166,29 +165,41 @@ async function fetchData() {
   }
   console.log(data)
   // 修改分页选项
-  pageInfo.pageTotal = data.length
   tableData.value = data
 }
 
 // 切换阶段
-const togglePhase = () => {
+const togglePhase = async () => {
   query.mode = isPhaseTwo.value ? 2 : 1; // 根据当前状态切换查询模式
   search.value = ''
-  fetchData(); // 重新获取数据
+  query.page = 1
+  pageNow.value = 1;
+  await fetchData(); // 重新获取数据
+  if (query.mode == 2) {
+    getStep2data()
+  }
+  else {
+    getStep1data()
+  }
 }
 
 // 选择其他页面
-const pageChange = (page) => {
-  pageNow.value = page;
+const pageChange = async (page) => {
   query.page = page
+  pageNow.value = page;
+  await fetchData()
 }
 
 // 监听当前页面变化
-watch(pageNow, async () => {
-  await fetchData()
-})
+// watch(() => pageNow.value, async () => {
+//   console.log(pageNow.value)
+// })
 
 watch(() => search.value, async () => {
+  if (search.value == '') {
+    await fetchData()
+    return
+  }
   if (query.mode == 1) {
     //阶段一全局搜索
     tableData.value = step1Data.value.filter((data) => {
@@ -212,7 +223,11 @@ onMounted(async () => {
   let viewheight = window.innerHeight
   height.value = viewheight - 300
   await fetchData()
-  // 获取阶段一全部数据
+  getStep1data()
+})
+// 获取阶段一全部数据
+async function getStep1data() {
+
   const { data: step1 } = await get(`/api/scores/1/999/1`)
   for (let item of step1) {
     item.pass_time = formatUnixTime(item.pass_time)
@@ -221,8 +236,9 @@ onMounted(async () => {
   pageInfo.pageTotal = step1.length
   step1Data.value = step1
 
-
-  // 获取阶段二全部数据
+}
+// 获取阶段二全部数据
+async function getStep2data() {
   const { data: step2 } = await get(`/api/scores/1/999/2`)
   for (let item of step2) {
     item.pass_time = formatUnixTime(item.pass_time)
@@ -230,7 +246,7 @@ onMounted(async () => {
   // 修改分页选项
   pageInfo.pageTotal = step2.length
   step2Data.value = step2
-})
+}
 // 前三名显示图标
 const getRankImage = (rank) => {
   switch (rank) {
