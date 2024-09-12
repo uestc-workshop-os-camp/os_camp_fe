@@ -78,13 +78,13 @@
                 <div class="studioLogo flex flex-col justify-center items-center">
                     <div class=" ml-5 mr-5 min-w-[100px]"><img src='/img/studio/yilu/logo.jpg' class="rounded-full"
                             width="250px"></div>
-                    <a href="#yilu" class="content__link text-white font-lg text-2xl mt-10">一路工作室</a>
+                    <a href="https://recruit.yilu-studio.cn/" class="content__link text-white font-lg text-2xl mt-10">一路工作室</a>
                 </div>
                 <!-- 微光 -->
                 <div class="studioLogo flex flex-col justify-center items-center">
                     <div class=" ml-5 mr-5 min-w-[100px]"><img src='/img/studio/glimmer/logo.png' class="rounded-full"
                             width="250px"></div>
-                    <a href="#weiguang" class="content__link text-white font-lg text-2xl mt-10">微光工作室</a>
+                    <a href="https://www.glimmer.org.cn/" class="content__link text-white font-lg text-2xl mt-10">微光工作室</a>
                 </div>
                 <!-- yolo -->
                 <div class="studioLogo flex flex-col justify-center items-center">
@@ -348,7 +348,7 @@ const introducionYilu = reactive({
     data2: '一路是一个自由的工作室，同学们收获知识共同进步，交流有关学习生活等等事情，还有许多特别热情且乐于助人的学长学姐，刚进入工作室的新同学也能快速融入。一路大家庭欢迎各类同学加入，如果你想要与优秀的同学共同勉励，一路会是你的不二之选。',
     data3: '工作室研究方向：前端 后端 机器学习 \n 工作室地点：沙河校区第三教学楼401',
     data4: '我们工作室的主要研究方向是Web系统开发，主要是前后端开发，其中包括前端Serverless，流量优化，防抖动策略，懒加载策略的研究等，后端则是关于高并发，微服务的研究。但我们又不局限于Web系统，微信小程序，10S开发也有所涉及和研究。 同时我们拓展了机器学习方向，提供学习资源，项目资源以及科研资源，欢迎大家的加入。 到目前为止，工作室接手过创新项目院级项目11项，校级项目8项。其中Web项目9 项，微信小程序6项。如智能助困系统，高校督导系统，成绩发布系统，舌尖沙河，活动预约系统。',
-    website: '#',
+    website: 'https://recruit.yilu-studio.cn/',
     pic1Src: '/img/studio/yilu/pic1.jpg',
     pic2Src: '/img/studio/yilu/pic2.png',
 })
