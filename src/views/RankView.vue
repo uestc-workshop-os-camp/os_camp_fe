@@ -1,31 +1,39 @@
 <template>
-  <!-- 排行榜头部 -->
-  <div class="rankHeader w-full h-[130px] bg-white border-solid border flex">
-    <img src="/img/logo.png" alt="" class="z-10 absolute top-1 left-4 w-[165px]">
-    <!-- 用户头像 -->
-    <div class="myRepo absolute right-14 top-10 flex items-center">
+  <div class="rankHeader w-full h-[80px] bg-white border-solid border flex">
+    <div class="myRepo absolute left-14 top-8 flex items-center">
+      光点计划 III 开源操作系统训练营
+    </div>
+    <div class="myRepo absolute right-14 top-8 flex items-center">
       <div>
-        <el-button @click="returnHome">
-          返回主页
-        </el-button>
+        <el-button @click="returnHome"> 返回主页 </el-button>
       </div>
-      <img class="rounded-full ml-5 hover:scale-110" :src="userAvatar" width="55px">
     </div>
   </div>
   <!-- 切换阶段 -->
   <div class="w-[50vw] ml-[35vw]">
-    <div class=" w-full flex mt-4  justify-between">
-      <el-switch v-model="isPhaseTwo" active-text="阶段二" inactive-text="阶段一" @change="togglePhase"></el-switch>
-      <el-input v-if="isPhaseTwo" v-model="search" size="default" placeholder="搜索用户名" style="width: 240px" />
+    <div class="w-full flex mt-4 justify-between">
+      <el-switch
+        v-model="isPhaseTwo"
+        active-text="阶段二"
+        inactive-text="阶段一"
+        @change="togglePhase"
+      ></el-switch>
+      <el-input
+        v-if="isPhaseTwo"
+        v-model="search"
+        placeholder="搜索用户名"
+        size="default"
+        style="width: 240px"
+      />
     </div>
   </div>
   <!-- 排行榜部分 -->
 
   <div class="w-full flex items-center flex-col">
     <!-- 阶段一 -->
-    <div v-if="!isPhaseTwo" class="lg:w-3/4 w-full ">
-      <el-table :data="tableData" stripe row-class-name="h-14" :height="height">
-        <el-table-column prop="rank" label="排名" width="80" align="center">
+    <div v-if="!isPhaseTwo" class="lg:w-3/4 w-full">
+      <el-table :data="tableData" :height="height" row-class-name="h-14" stripe>
+        <el-table-column align="center" label="排名" prop="rank" width="80">
           <template #default="scope">
             <div v-if="scope.row.rank <= 3" class="flex justify-center">
               <img :src="getRankImage(scope.row.rank)" width="30px" />
@@ -35,20 +43,20 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column prop="username" label="用户" width="200" align="center">
+        <el-table-column align="center" label="用户" prop="username" width="200">
           <template #default="scope">
             <div class="flex items-center justify-start flex-row">
-              <img :src="scope.row.header_url" width="30px" class="rounded-full" />
-              <div class=" ml-4">{{ scope.row.username }}</div>
+              <img :src="scope.row.header_url" class="rounded-full" width="30px" />
+              <div class="ml-4">{{ scope.row.username }}</div>
             </div>
           </template>
         </el-table-column>
-        <el-table-column prop="total" label="题目总分" width="160" align="center" />
-        <el-table-column prop="points" label="得分" width="160" align="center" />
-        <el-table-column prop="pass_time" label="最后提交时间" align="center" />
+        <el-table-column align="center" label="题目总分" prop="total" width="160" />
+        <el-table-column align="center" label="得分" prop="points" width="160" />
+        <el-table-column align="center" label="最后提交时间" prop="pass_time" />
         <el-table-column align="right">
           <template #header>
-            <el-input v-model="search" size="default" placeholder="搜索用户名" />
+            <el-input v-model="search" placeholder="搜索用户名" size="default" />
           </template>
         </el-table-column>
       </el-table>
@@ -56,8 +64,8 @@
     <!-- 阶段二 -->
     <div v-else class="w-full">
       <!-- 阶段二 -->
-      <el-table :data="tableData" stripe row-class-name="h-14" :height="height">
-        <el-table-column prop="rank" label="排名" width="80" align="center">
+      <el-table :data="tableData" :height="height" row-class-name="h-14" stripe>
+        <el-table-column align="center" label="排名" prop="rank" width="80">
           <template #default="scope">
             <div v-if="scope.row.rank <= 3" class="flex justify-center">
               <img :src="getRankImage(scope.row.rank)" width="30px" />
@@ -67,41 +75,51 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column prop="username" label="用户" width="200" align="center">
+        <el-table-column align="center" label="用户" prop="username" width="200">
           <template #default="scope">
             <div class="flex items-center justify-start flex-row">
-              <img :src="scope.row.header_url" width="30px" class="rounded-full" />
-              <div class=" ml-4">{{ scope.row.username }}</div>
+              <img :src="scope.row.header_url" class="rounded-full" width="30px" />
+              <div class="ml-4">{{ scope.row.username }}</div>
             </div>
           </template>
         </el-table-column>
-        <el-table-column prop="total" label="总分" width="160" align="center" />
-        <el-table-column prop="ch3" label="ch3" width="160" align="center" />
-        <el-table-column prop="ch4" label="ch4" width="160" align="center" />
-        <el-table-column prop="ch5" label="ch5" width="160" align="center" />
-        <el-table-column prop="ch6" label="ch6" width="160" align="center" />
-        <el-table-column prop="ch8" label="ch8" width="160" align="center" />
-        <el-table-column prop="pass_time" label="最后提交时间" align="center" />
+        <el-table-column align="center" label="总分" prop="total" width="160" />
+        <el-table-column align="center" label="ch3" prop="ch3" width="160" />
+        <el-table-column align="center" label="ch4" prop="ch4" width="160" />
+        <el-table-column align="center" label="ch5" prop="ch5" width="160" />
+        <el-table-column align="center" label="ch6" prop="ch6" width="160" />
+        <el-table-column align="center" label="ch8" prop="ch8" width="160" />
+        <el-table-column align="center" label="最后提交时间" prop="pass_time" />
       </el-table>
     </div>
     <!-- 用户选择分页大小 -->
-    <div class="flex justify-center ">
-      <el-select v-model="pageInfo.pageSize" @change="onPageSizeChange" class="mt-6 w-[10vw]" placeholder="选择每页条目数">
+    <div class="flex justify-center">
+      <el-select
+        v-model="pageInfo.pageSize"
+        class="mt-6 w-[10vw]"
+        placeholder="选择每页条目数"
+        @change="onPageSizeChange"
+      >
         <el-option v-for="size in pageSizes" :key="size" :label="size" :value="size"></el-option>
       </el-select>
       <!-- 排行榜分页选项 -->
-      <el-pagination class="flex justify-center mt-6" layout="prev, pager, next" :page-size="pageInfo.pageSize"
-        :pager-count="pageInfo.pageCount" :current-page="pageNow.value" :total="pageInfo.pageTotal"
-        @current-change="pageChange($event)" />
+      <el-pagination
+        :current-page="pageNow.value"
+        :page-size="pageInfo.pageSize"
+        :pager-count="pageInfo.pageCount"
+        :total="pageInfo.pageTotal"
+        class="flex justify-center mt-6"
+        layout="prev, pager, next"
+        @current-change="pageChange($event)"
+      />
     </div>
-
   </div>
 </template>
 
 <script setup>
-import { ref, reactive, watch, onMounted } from 'vue'
+import { onMounted, reactive, ref, watch } from 'vue'
 import { get } from '../request/index.js'
-import { useRouter } from 'vue-router';
+import { useRouter } from 'vue-router'
 
 const router = useRouter()
 // 表格固定高度:
@@ -120,15 +138,15 @@ const pageNow = ref(1) // 设置当前页面
 const pageInfo = reactive({
   pageSize: 10, // 每页人数
   pageCount: 5, // 选项数量
-  pageTotal: 200, // 数据总量
+  pageTotal: 200 // 数据总量
 })
-const pageSizes = [10, 20, 50, 100]; // 可选的分页大小
+const pageSizes = [10, 20, 50, 100] // 可选的分页大小
 const onPageSizeChange = (size) => {
-  pageInfo.pageSize = size; // 更新分页大小
+  pageInfo.pageSize = size // 更新分页大小
   query.page_num = size
-  pageNow.value = 1; // 重置到第一页
-  fetchData(); // 重新获取数据
-};
+  pageNow.value = 1 // 重置到第一页
+  fetchData() // 重新获取数据
+}
 
 // 初始化请求参数
 const query = reactive({
@@ -141,20 +159,20 @@ const query = reactive({
 const isPhaseTwo = ref(false)
 
 // 右上方用户头像
-const userAvatar = "/avatar.jpg"
+const userAvatar = '/avatar.jpg'
 
 // 时间戳修改
 function formatUnixTime(unixTime) {
-  const date = new Date(unixTime * 1000); // Unix 时间戳是秒级的，需要转换为毫秒级
+  const date = new Date(unixTime * 1000) // Unix 时间戳是秒级的，需要转换为毫秒级
   // 获取年、月、日、小时和分钟
-  const year = date.getFullYear();
-  const month = (date.getMonth() + 1).toString().padStart(2, '0');
-  const day = date.getDate().toString().padStart(2, '0');
-  const hours = date.getHours().toString().padStart(2, '0');
-  const minutes = date.getMinutes().toString().padStart(2, '0');
+  const year = date.getFullYear()
+  const month = (date.getMonth() + 1).toString().padStart(2, '0')
+  const day = date.getDate().toString().padStart(2, '0')
+  const hours = date.getHours().toString().padStart(2, '0')
+  const minutes = date.getMinutes().toString().padStart(2, '0')
   // 拼接成 yyyy-mm-dd hh:mm 格式
-  const formattedTime = `${year}-${month}-${day} ${hours}:${minutes}`;
-  return formattedTime;
+  const formattedTime = `${year}-${month}-${day} ${hours}:${minutes}`
+  return formattedTime
 }
 
 // 获取数据
@@ -170,15 +188,14 @@ async function fetchData() {
 
 // 切换阶段
 const togglePhase = async () => {
-  query.mode = isPhaseTwo.value ? 2 : 1; // 根据当前状态切换查询模式
+  query.mode = isPhaseTwo.value ? 2 : 1 // 根据当前状态切换查询模式
   search.value = ''
   query.page = 1
-  pageNow.value = 1;
-  await fetchData(); // 重新获取数据
+  pageNow.value = 1
+  await fetchData() // 重新获取数据
   if (query.mode == 2) {
     getStep2data()
-  }
-  else {
+  } else {
     getStep1data()
   }
 }
@@ -186,7 +203,7 @@ const togglePhase = async () => {
 // 选择其他页面
 const pageChange = async (page) => {
   query.page = page
-  pageNow.value = page;
+  pageNow.value = page
   await fetchData()
 }
 
@@ -195,24 +212,26 @@ const pageChange = async (page) => {
 //   console.log(pageNow.value)
 // })
 
-watch(() => search.value, async () => {
-  if (search.value == '') {
-    await fetchData()
-    return
+watch(
+  () => search.value,
+  async () => {
+    if (search.value == '') {
+      await fetchData()
+      return
+    }
+    if (query.mode == 1) {
+      //阶段一全局搜索
+      tableData.value = step1Data.value.filter((data) => {
+        return data.username.toLowerCase().includes(search.value.toLowerCase())
+      })
+    } else {
+      //阶段二全局搜索
+      tableData.value = step2Data.value.filter((data) => {
+        return data.username.toLowerCase().includes(search.value.toLowerCase())
+      })
+    }
   }
-  if (query.mode == 1) {
-    //阶段一全局搜索
-    tableData.value = step1Data.value.filter((data) => {
-      return data.username.toLowerCase().includes(search.value.toLowerCase())
-    })
-  }
-  else {
-    //阶段二全局搜索
-    tableData.value = step2Data.value.filter((data) => {
-      return data.username.toLowerCase().includes(search.value.toLowerCase())
-    })
-  }
-})
+)
 // 阶段一全部数据
 const step1Data = ref([])
 // 阶段二全部数据
@@ -225,9 +244,9 @@ onMounted(async () => {
   await fetchData()
   getStep1data()
 })
+
 // 获取阶段一全部数据
 async function getStep1data() {
-
   const { data: step1 } = await get(`/api/scores/1/999/1`)
   for (let item of step1) {
     item.pass_time = formatUnixTime(item.pass_time)
@@ -235,8 +254,8 @@ async function getStep1data() {
   // 修改分页选项
   pageInfo.pageTotal = step1.length
   step1Data.value = step1
-
 }
+
 // 获取阶段二全部数据
 async function getStep2data() {
   const { data: step2 } = await get(`/api/scores/1/999/2`)
@@ -247,15 +266,16 @@ async function getStep2data() {
   pageInfo.pageTotal = step2.length
   step2Data.value = step2
 }
+
 // 前三名显示图标
 const getRankImage = (rank) => {
   switch (rank) {
     case 1:
-      return '/img/rank/gold.png';
+      return '/img/rank/gold.png'
     case 2:
-      return '/img/rank/sliver.png';
+      return '/img/rank/sliver.png'
     case 3:
-      return '/img/rank/blonze.png';
+      return '/img/rank/blonze.png'
     default:
       return '/'
   }

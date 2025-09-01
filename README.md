@@ -1,4 +1,4 @@
-# 2024_OS
+# UESTC OS Camp 2025 Frontend
 
 This template should help get you started developing with Vue 3 in Vite.
 

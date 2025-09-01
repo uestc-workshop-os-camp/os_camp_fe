@@ -1,433 +1,626 @@
 <template>
-    <!-- 网站配色
-    --background-color: #363dc2;
-    --background-color-2: #282faf;
-    --background-color-3: #202692; -->
-    <!-- 可参考的动态背景js  https://github.com/codrops/MorphingBackgroundShapes/blob/master/js/demo1.js -->
+  <div class="app-root">
+    <div class="bg-gradient-to-br from-[#4DA2CB] to-[#67B26F] text-white">
+      <section ref="sections" class="homePage">
+        <div class="container hero">
+          <nav aria-label="Main navigation" class="nav" role="navigation">
+            <div class="brand">光点计划 III</div>
+            <ul class="nav-list">
+              <li>
+                <RouterLink class="nav-link btn ghost" to="/rank">排行榜</RouterLink>
+              </li>
+            </ul>
+          </nav>
 
-    <!-- 这是背景后面那一坨 -->
-    <div class="morph-wrap fixed z-0">
-        <svg class="morph" width="1400" height="770" viewBox="0 -00 1400 770">
-            <path class="" fill="#282faf"
-                d="M 262.9,252.2 C 210.1,338.2 212.6,487.6 288.8,553.9 372.2,626.5 511.2,517.8 620.3,536.3 750.6,558.4 860.3,723 987.3,686.5 1089,657.3 1168,534.7 1173,429.2 1178,313.7 1096,189.1 995.1,130.7 852.1,47.07 658.8,78.95 498.1,119.2 410.7,141.1 322.6,154.8 262.9,252.2 Z" />
-        </svg>
-    </div>
+          <div class="hero-grid">
+            <div class="hero-left">
+              <h1 class="title">开源操作系统训练营</h1>
+              <p class="subtitle">
+                从 Rustlings 到 rCore，手把手从零实现操作系统，夯实系统能力，结识志同道合的同伴。
+              </p>
 
-    <!-- 首页 -->
-    <div
-        class=" content--layout content-wrap homePage w-full h-[50vh] lg:h-screen bg-[#363dc2] flex justify-center items-center flex-col -z-20">
-        <!-- 首页头部 -->
-        <div class="homePageTop flex w-full min-w-20 h-8 justify-between absolute top-0">
-            <RouterLink to="/rank"
-                class="rankButton bg-transparent w-auto min-w-10 h-auto text-white font-bold text-xl relative left-10 top-10 border-b-2 border-solid border-white hover:text-[#cdd0ff]">
-                Visit Rank</RouterLink>
-            <RouterLink to="/login"
-                class="loginButton bg-transparent text-white font-bold right-10 text-xl relative top-10 z-10">
-                Login</RouterLink>
-        </div>
+              <div class="actions">
+                <a
+                  class="btn outlined"
+                  href="https://github.com/uestc-workshop-os-camp"
+                  rel="noopener"
+                  target="_blank"
+                  >GitHub 报名</a
+                >
+              </div>
 
-        <!-- 首页标题 -->
-        <div class="homePageTitle w-auto h-auto  bg-transparent p-1 flex justify-center">
-            <div class="content__img"><img src="/img/homePicNew.png" alt=""
-                    class="relative left-1/5 bottom-10 z-0 shadow-2xl max-w-[350px] max-h-[350px]:"></div>
-            <div class=" title text-white relative left-5 z-10 w-3/4">
-                <h1 class=" font-extrabold text-7xl relative right-35 mb-4 bottom-6 animate-slideInDown">操作系统开源活动</h1>
-
-                <div class="content__title overflow-hidden">
-                    <div class="font-bold text-3xl leading-10 animate-slideInLeft delay-75">🚀你可以得到：</div>
-                    <div class="font-bold text-3xl leading-10 animate-slideInLeft delay-150">🌟 一次触碰前沿编程语言、最新机器架构的机会
-                    </div>
-                    <div class="font-bold text-3xl leading-10 animate-slideInLeft delay-225">💻一次从零实现操作系统、培养计算机系统能力的经历
-                    </div>
-                    <div class="font-bold text-3xl leading-10 animate-slideInLeft delay-300">🤝一群志同道合、共同进步的朋友</div>
-                    <div class="font-bold text-3xl mt-5">🌈 一路 | 微光 | YOLO | 嵌入式</div>
-                </div>
-
+              <ul aria-hidden="false" class="features">
+                <li>🚀 亲手接触前沿语言与现代计算架构</li>
+                <li>💻 从零实现操作系统，深挖底层实现能力</li>
+                <li>🤝 加入活跃社群，与工作室共同成长</li>
+              </ul>
             </div>
-        </div>
-    </div>
 
-    <!-- 加入活动 -->
-    <div class="p-4  joinPage w-full h-[40vh] lg:h-screen bg-[#363dc2] flex items-center flex-col ">
-        <div class="z-10 w-full h-full flex items-center justify-center">
-            <div class="text-white mr-4 lg:mr-24 flex items-start justify-center flex-col">
-                <h1 class=" text-5xl font-bold relative mb-5">活动详情</h1>
-                <div class="w-[38rem] mt-5 text-lg">
-                    由多个工作室联合举办的为期2月的开源操作系统训练营活动，为对计算机底层感兴趣的同学提供一个学习平台。无论你是否接触过体系结构的项目，你能通过这个活动了解到你是否喜欢它，是否可能继续研究它。如果你已经计划走向计算机科学家的道路，那通过这个活动，你能积累更多知识，找到志同道合的伙伴。你亦可以通过参与举办这次活动的工作室的招新，成为多个工作室的成员。
-                </div>
-                <div class="w-[38rem] mt-2 text-lg">
-                    活动本身取自清华大学面向社会的开源操作系统训练营，题目来自于清华大学计算机学院以及叉院的lab。意在推广清华大学的开源活动，已得到举办老师的支持。</div>
-                <!-- <div class="text-xl mt-2">9.25-10.19 : rust学习</div>
-                        <div class="text-xl mt-2">10.20-11.19 : rcore实验</div> -->
-                <div class=" text-3xl font-bold mt-10">- Github<a href="https://github.com/uestc-workshop-os-camp"
-                        class="border-b-2 hover:text-slate-200">报名链接</a></div>
-                <div class=" text-2xl mt-5 font-bold">- 官方QQ群：735598360</div>
+            <div aria-hidden="true" class="hero-right">
+              <div class="card-image">
+                <img alt="OS Camp illustration" loading="lazy" src="/img/homePicNew.png" />
+              </div>
             </div>
-            <img src="/img/chat.jpg" alt="" width="250px" class="rounded-md ml-2">
+          </div>
         </div>
+      </section>
 
+      <section id="join" class="joinPage">
+        <div class="container">
+          <div class="grid-two">
+            <article class="card soft">
+              <p>
+                光点计划由多个学生工作室联合举办，为期两个月，为对计算机底层感兴趣的同学提供一个实践平台。题目取自清华大学开源操作系统训练营，已得到老师与实验室的支持。
+              </p>
+
+              <ul class="mini-list">
+                <li>📅 <strong>时长：</strong>2 个月</li>
+                <li>
+                  🔗 <strong>报名：</strong>
+                  <a
+                    class="link"
+                    href="https://github.com/uestc-workshop-os-camp"
+                    rel="noopener"
+                    target="_blank"
+                  >
+                    GitHub 报名</a
+                  >
+                </li>
+                <li>💬 <strong>官方QQ群：</strong>735598360</li>
+              </ul>
+            </article>
+
+            <figure class="chat-preview card soft">
+              <img alt="Chat preview" loading="lazy" src="/img/chat.jpg" />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="studios" class="studioPage">
+        <div class="container">
+          <h2 class="section-title">成员工作室</h2>
+
+          <ul class="studio-grid" role="list">
+            <li
+              v-for="(s, idx) in studios"
+              :key="s.name"
+              class="studio-card soft"
+              @click="goToAnchor(s.anchor)"
+            >
+              <img :alt="s.name + ' logo'" :src="s.logo" loading="lazy" />
+              <div class="studio-name">{{ s.name }}</div>
+            </li>
+          </ul>
+
+          <div class="studio-list">
+            <article
+              v-for="(d, i) in studios"
+              :id="d.anchor"
+              :key="d.name"
+              class="studio-full card soft"
+            >
+              <header class="studio-header">
+                <div class="studio-info">
+                  <img :alt="d.name + ' logo'" :src="d.logo" loading="lazy" />
+                  <h3>{{ d.name }}</h3>
+                </div>
+                <a :href="d.website" class="btn outlined">官网</a>
+              </header>
+
+              <div class="accordion">
+                <details open>
+                  <summary>工作室简介</summary>
+                  <div class="panel">{{ d.data1 }}</div>
+                </details>
+                <details open>
+                  <summary>工作室文化</summary>
+                  <div class="panel">{{ d.data2 }}</div>
+                </details>
+                <details open>
+                  <summary>研究方向</summary>
+                  <div class="panel">{{ d.data3 }}</div>
+                </details>
+                <details open>
+                  <summary>项目成果</summary>
+                  <div class="panel">{{ d.data4 }}</div>
+                </details>
+              </div>
+
+              <div class="studio-gallery">
+                <img v-for="(p, k) in d.pics" :key="k" :src="p" loading="lazy" />
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="container small">© 2024-2025 光点计划团队</div>
+      </footer>
     </div>
-
-    <!-- 工作室页面 -->
-    <div class="studioPage w-full lg:h-[500vh] bg-[#363dc2] flex items-center flex-col">
-        <!-- 想做一个点击工作室logo下滑到对应位置的效果，还未实现 -->
-        <div class="content-wrap w-full h-[40vh] lg:h-screen flex  items-center flex-col z-0">
-            <h1 class=" text-white text-5xl font-bold mb-16 mt-20">成员工作室</h1>
-            <div class="flex mt-24">
-                <!-- 一路 -->
-                <div class="studioLogo flex flex-col justify-center items-center">
-                    <div class=" ml-5 mr-5 min-w-[100px]"><img src='/img/studio/yilu/logo.jpg' class="rounded-full"
-                            width="250px"></div>
-                    <a href="https://recruit.yilu-studio.cn/" class="content__link text-white font-lg text-2xl mt-10">一路工作室</a>
-                </div>
-                <!-- 微光 -->
-                <div class="studioLogo flex flex-col justify-center items-center">
-                    <div class=" ml-5 mr-5 min-w-[100px]"><img src='/img/studio/glimmer/logo.png' class="rounded-full"
-                            width="250px"></div>
-                    <a href="https://www.glimmer.org.cn/" class="content__link text-white font-lg text-2xl mt-10">微光工作室</a>
-                </div>
-                <!-- yolo -->
-                <div class="studioLogo flex flex-col justify-center items-center">
-                    <div class=" ml-5 mr-5 min-w-[100px]"><img src='/img/studio/yolo/logo.jpg' class="rounded-full"
-                            width="250px"></div>
-                    <a href="#yolo" class="content__link text-white font-lg text-2xl mt-10">YOLO工作室</a>
-                </div>
-                <!-- 嵌入式 -->
-                <div class="studioLogo flex flex-col justify-center items-center">
-                    <div class=" ml-5 mr-5 min-w-[100px]"><img src='/img/studio/embedded/logo.jpg' class="rounded-full"
-                            width="250px"></div>
-                    <a href="#qianrushi" class="content__link text-white font-lg text-2xl mt-10">嵌入式工作室</a>
-                </div>
-            </div>
-        </div>
-        <!-- 一路 -->
-        <div id="yilu"
-            class="content-wrap yilu w-full lg:w-3/4 h-[40vh] lg:h-screen p-20 bg-transparent text-white flex justify-center items-center"
-            style="clip-path: url(#loginSvg);">
-            <el-card class="box-card w-full lg:min-h-[80vh] min-h-[30vh]">
-                <div class="studioText">
-                    <div class="flex justify-between items-center">
-                        <a :href="introducionYilu.website"
-                            class="text-xl h-8 ml-6 border-b-2 hover:text-slate-300">官网访问</a>
-                        <h2 class="font-bold text-5xl mb-6">
-                            <span :class="{ gradient: viewWidth > 980 }">
-                                {{ introducionYilu.name }}</span>
-                            🥏
-                        </h2>
-                    </div>
-                </div>
-
-                <!-- 折叠面板组件 -->
-                <el-collapse v-model="yiluActiveNames" accordion="true">
-                    <el-collapse-item title="工作室简介🪁" name="1">
-                        <div class="ml-4 text-lg flex">
-                            {{ introducionYilu.data1 }}
-                        </div>
-                    </el-collapse-item>
-                    <el-collapse-item title="工作室文化🎯" name="2">
-                        <div class="ml-4  text-lg">{{ introducionYilu.data2 }}</div>
-                    </el-collapse-item>
-                    <el-collapse-item title="研究方向🧐" name="3">
-                        <div class="ml-4 text-xl">{{ introducionYilu.data3 }}</div>
-                    </el-collapse-item>
-                    <el-collapse-item title="项目成果✨" name="4">
-                        <div class="ml-4 text-lg">{{ introducionYilu.data4 }}</div>
-                    </el-collapse-item>
-                </el-collapse>
-
-                <div class="studioPic flex justify-evenly p-4">
-                    <img :src="introducionYilu.pic1Src" alt="111"
-                        class="rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
-                        style="width: 30%; height: auto;">
-                    <img :src="introducionYilu.pic2Src" alt="1111"
-                        class="rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
-                        style="width: 30%; height: auto;">
-                    <!-- <img :src="introducionYilu.pic1Src" alt=""
-                        class="rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
-                        style="width: 30%; height: auto;"> -->
-                </div>
-            </el-card>
-        </div>
-        <!-- 微光 -->
-        <div id="weiguang"
-            class="content-wrap glimmer w-full lg:w-3/4 h-[40vh] lg:h-screen  p-20 bg-transparent text-white flex justify-center items-center text-left"
-            style="clip-path: url(#loginSvg);">
-            <el-card class="box-card w-full  lg:min-h-[80vh] min-h-[30vh]">
-                <div class="studioText">
-                    <div class="flex justify-between items-center">
-                        <a :href="introducionGlimmer.website"
-                            class="text-xl h-8 ml-6 border-b-2 hover:text-slate-300">官网访问</a>
-                        <h2 class="font-bold text-5xl mb-6">
-                            <span :class="{ gradient: viewWidth > 980 }">
-                                {{ introducionGlimmer.name }}</span>
-                            ❄️
-                        </h2>
-                    </div>
-                </div>
-
-                <!-- 添加折叠面板组件 -->
-                <el-collapse v-model="weiguangActiveName" accordion>
-                    <el-collapse-item title="工作室简介🪁" name="1">
-                        <div class="ml-4 text-lg">{{ introducionGlimmer.data1 }}</div>
-                    </el-collapse-item>
-                    <el-collapse-item title="工作室文化🎯" name="2">
-                        <div class="ml-4 text-lg">{{ introducionGlimmer.data2 }}</div>
-                    </el-collapse-item>
-                    <el-collapse-item title="研究方向🧐" name="3">
-                        <div class="ml-4 text-lg">{{ introducionGlimmer.data3 }}</div>
-                    </el-collapse-item>
-                    <el-collapse-item title="项目成果✨" name="4">
-                        <div class="ml-4 text-lg">{{ introducionGlimmer.data4 }}</div>
-                    </el-collapse-item>
-                </el-collapse>
-                <div class="studioPic flex justify-evenly p-4">
-                    <img :src="introducionGlimmer.pic1Src" alt=""
-                        class="rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
-                        style="width: 30%; height: auto;">
-                    <img :src="introducionGlimmer.pic2Src" alt=""
-                        class="rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
-                        style="width: 30%; height: auto;">
-                    <img :src="introducionGlimmer.pic3Src" alt=""
-                        class="rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
-                        style="width: 30%; height: auto;">
-                </div>
-            </el-card>
-        </div>
-        <!-- YOLO -->
-
-        <div id="yolo"
-            class="content-wrap yilu w-full lg:w-3/4 h-[40vh] lg:h-screen  p-20 bg-transparent text-white flex justify-center items-center"
-            style="clip-path: url(#loginSvg);">
-            <el-card class="box-card w-full lg:min-h-[80vh] min-h-[30vh]">
-                <div class="studioText">
-                    <div class="flex justify-between items-center">
-                        <a :href="introducionYolo.website"
-                            class="text-xl h-8 ml-6 border-b-2 hover:text-slate-300">官网访问</a>
-                        <h2 class="font-bold text-5xl mb-6">
-                            <span :class="{ gradient: viewWidth > 980 }">
-                                {{ introducionYolo.name }}</span>
-                            🍀
-                        </h2>
-                    </div>
-                </div>
-
-                <!-- 折叠面板组件 -->
-                <el-collapse v-model="yoloActiveNames" accordion="true">
-                    <el-collapse-item title="工作室简介🪁" name="1">
-                        <div class="ml-4 text-lg">{{ introducionYolo.data1 }}</div>
-                    </el-collapse-item>
-                    <el-collapse-item title="工作室文化🎯" name="2">
-                        <div class="ml-4 text-lg">{{ introducionYolo.data2 }}</div>
-                    </el-collapse-item>
-                    <el-collapse-item title="研究方向🧐" name="3">
-                        <div class="ml-4 text-xl">{{ introducionYolo.data3 }}</div>
-                    </el-collapse-item>
-                    <el-collapse-item title="项目成果✨" name="4">
-                        <div class="ml-4 text-lg">{{ introducionYolo.data4 }}</div>
-                    </el-collapse-item>
-                </el-collapse>
-
-                <div class="studioPic flex justify-evenly p-4">
-                    <img :src="introducionYolo.pic1Src" alt=""
-                        class="rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
-                        style="width: 30%; height: auto;">
-                    <img :src="introducionYolo.pic2Src" alt=""
-                        class="rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
-                        style="width: 30%; height: auto;">
-                    <img :src="introducionYolo.pic3Src" alt=""
-                        class="rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
-                        style="width: 30%; height: auto;">
-                </div>
-            </el-card>
-        </div>
-        <!-- 嵌入式 -->
-        <div id="qianrushi"
-            class="content--related  embedded w-full lg:w-3/4 h-[40vh] lg:h-screen  p-20 bg-transparent text-white flex justify-center items-center"
-            style="clip-path: url(#loginSvg);">
-            <el-card class="box-card w-full lg:min-h-[80vh] min-h-[30vh]">
-                <div class="studioText">
-                    <div class="flex justify-between items-center">
-                        <a :href="introducionEmbedded.website"
-                            class="text-xl h-8 ml-6 border-b-2 hover:text-slate-300">官网访问</a>
-                        <h2 class="font-bold text-5xl mb-6">
-                            <span :class="{ gradient: viewWidth > 980 }">
-                                {{ introducionEmbedded.name }}</span>
-                            ⚙️
-                        </h2>
-                    </div>
-                </div>
-
-                <el-collapse v-model="qianrushiActiveNames" accordion="true">
-                    <el-collapse-item title="工作室简介🪁" name="1">
-                        <div class="ml-4 text-lg">{{ introducionEmbedded.data1 }}</div>
-                    </el-collapse-item>
-                    <el-collapse-item title="工作室文化🎯" name="2">
-                        <div class="ml-4 text-lg">{{ introducionEmbedded.data2 }}</div>
-                    </el-collapse-item>
-                    <el-collapse-item title="研究方向🧐" name="3">
-                        <div class="ml-4 text-xl">{{ introducionEmbedded.data3 }}</div>
-                    </el-collapse-item>
-                    <el-collapse-item title="项目成果✨" name="4">
-                        <div class="ml-4 text-lg">{{ introducionEmbedded.data4 }}</div>
-                    </el-collapse-item>
-                </el-collapse>
-
-                <div class="studioPic flex justify-evenly p-4">
-                    <img :src="introducionEmbedded.pic1Src" alt=""
-                        class="rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
-                        style="width: 30%; height: auto;">
-                    <img :src="introducionEmbedded.pic2Src" alt=""
-                        class="rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
-                        style="width: 30%; height: auto;">
-                    <img :src="introducionEmbedded.pic3Src" alt=""
-                        class="rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
-                        style="width: 30%; height: auto;">
-                </div>
-            </el-card>
-        </div>
-    </div>
-    <!-- 点击下滑按钮 -->
-    <img v-if="pageNow != pageNum" @click="scrollDown" id="downButton" src="@/assets/svg/down.svg" alt="" width="45px"
-        class=" fixed bottom-5 left-1/2 animate-bounce z-20">
+  </div>
 </template>
 
-<script setup>
-// import { useRouter } from 'vue-router';
-import { reactive, onMounted, ref } from 'vue';
-import { demo1 } from '../utils/animate/demo1.js'
-// const router = useRouter()
-const viewWidth = ref(760)
-onMounted(() => {
-    viewWidth.value = window.innerWidth
-    console.log("viewWidth: " + viewWidth.value)
-    demo1()
-    document.addEventListener('wheel', scrollHandler, { passive: false })
-})
+<script lang="ts" setup>
+import { computed, reactive } from 'vue'
+import { RouterLink } from 'vue-router'
 
-// 移动控制
-const pageNow = ref(1)
-const pageNum = 7;
-let isScrolling = false;
-
-function scrollHandler(event) {
-    event.preventDefault()
-    if (isScrolling == true) { return }
-    isScrolling = true
-    new Promise((resolve) => {
-        if (event.deltaY < 0) {
-            window.scrollBy({ top: -window.innerHeight, behavior: 'smooth' });
-            if (pageNow.value > 1) { pageNow.value-- }
-        }
-        else if (event.deltaY > 0) {
-            window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
-            if (pageNow.value < pageNum) { pageNow.value++ }
-        }
-        setTimeout(() => { resolve() }, 500)
-    }).then(() => { isScrolling = false; })
-};
-function scrollDown() {
-    if (isScrolling == true) { return }
-    isScrolling = true
-    new Promise((resolve) => {
-        window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
-        if (pageNow.value < pageNum) { pageNow.value++ }
-        setTimeout(() => { resolve() }, 500)
-    }).then(() => { isScrolling = false; })
-}
-
-// const studioLogo = reactive({
-//     0: { srcImg: 'src/assets/img/studio/yilu/logo.jpg', name: '一路工作室', },
-//     1: { srcImg: 'src/assets/img/studio/yilu/logo.jpg', name: '微光工作室', },
-//     2: { srcImg: 'src/assets/img/studio/yilu/logo.jpg', name: 'YOLO工作室', },
-//     3: { srcImg: 'src/assets/img/studio/embedded/logo.jpg', name: '嵌入式工作室', },
-// })
-
-const introducionYilu = reactive({
+const introList = reactive([
+  {
     name: '一路工作室',
-    data1: '于2016年底正式成立，由戴瑞婷老师负责组建。工作室成立之初下属于学工部，服务于学院的各种需求而开发对应的Web系统，后归属于创新工坊，在服务于学院的同时参加各种比赛。',
-    data2: '一路是一个自由的工作室，同学们收获知识共同进步，交流有关学习生活等等事情，还有许多特别热情且乐于助人的学长学姐，刚进入工作室的新同学也能快速融入。一路大家庭欢迎各类同学加入，如果你想要与优秀的同学共同勉励，一路会是你的不二之选。',
-    data3: '工作室研究方向：前端 后端 机器学习 \n 工作室地点：沙河校区第三教学楼401',
-    data4: '我们工作室的主要研究方向是Web系统开发，主要是前后端开发，其中包括前端Serverless，流量优化，防抖动策略，懒加载策略的研究等，后端则是关于高并发，微服务的研究。但我们又不局限于Web系统，微信小程序，10S开发也有所涉及和研究。 同时我们拓展了机器学习方向，提供学习资源，项目资源以及科研资源，欢迎大家的加入。 到目前为止，工作室接手过创新项目院级项目11项，校级项目8项。其中Web项目9 项，微信小程序6项。如智能助困系统，高校督导系统，成绩发布系统，舌尖沙河，活动预约系统。',
+    data1:
+      '于 2016 年底正式成立，由戴瑞婷老师负责组建。工作室成立之初下属于学工部，服务于学院的各种需求而开发对应的 Web 系统，后归属于创新工坊，在服务于学院的同时参加各种比赛。',
+    data2:
+      '一路是一个自由的工作室，同学们收获知识共同进步，交流有关学习生活等等事情，还有许多特别热情且乐于助人的学长学姐，刚进入工作室的新同学也能快速融入。一路大家庭欢迎各类同学加入，如果你想要与优秀的同学共同勉励，一路会是你的不二之选。',
+    data3: '工作室研究方向：前端 后端 机器学习',
+    data4:
+      '我们工作室的主要研究方向是 Web 系统开发，主要是前后端开发，其中包括前端 Serverless，流量优化，防抖动策略，懒加载策略的研究等，后端则是关于高并发，微服务的研究。但我们又不局限于 Web 系统，微信小程序，10S 开发也有所涉及和研究。 同时我们拓展了机器学习方向，提供学习资源，项目资源以及科研资源，欢迎大家的加入。 到目前为止，工作室接手过创新项目院级项目 11 项，校级项目 8 项。其中 Web 项目 9 项，微信小程序 6 项。如智能助困系统，高校督导系统，成绩发布系统，舌尖沙河，活动预约系统。',
     website: 'https://recruit.yilu-studio.cn/',
-    pic1Src: '/img/studio/yilu/pic1.jpg',
-    pic2Src: '/img/studio/yilu/pic2.png',
-})
-
-const introducionGlimmer = reactive({
+    logo: '/img/studio/yilu/logo.jpg',
+    pics: ['/img/studio/yilu/pic1.jpg', '/img/studio/yilu/pic2.png']
+  },
+  {
     name: '微光工作室',
-    data1: '成立于 2012 年，前身“微软创新工作室”、“黑色之光工作室”。团队立足 IT 基础与底层架构相关技术，面向兴趣和前沿应用方向扩展，是技术氛围最浓厚、团队联系最紧密的工作室之一。',
-    data2: '“心有微光，不惧黑暗”是我们的口号，也是微光工作室在发展中始终贯彻的信条。秉持“兴趣驱动，自由发展”的理念，我们乐于接收对不同技术方向感兴趣的朋友，善于探求未知的技术领域。工作室由一群热爱技术的 Geek 组成，力图召集志同道合，敢于创新的伙伴们共同拼搏，挑战自我。\n微光工作室技术氛围浓厚，学期内定期组织多场技术相关分享会活动，由工作室内有相关研究经验的同学对某项技术主题展开专题分享，激发工作室成员在相关领域的学习热情。针对成员的学习需求，工作室还不定期组织项目学习和任务指导，供成员自由学习参考。',
-    data3: '作为研究氛围最自由的工作室之一，微光工作室并不限制团队成员的技术方向，而是鼓励成员以兴趣导向的积极进步寻找适合自己的领域。经过多年发展，工作室当前形成了以 IT 基础架构领域为中心的团队技术方向，并辅以上层应用和前沿领域技术推进，同时鼓励百花齐放的路线创新。\n目前团队在校成员在 OS 内核、云计算、编译技术、硬件设计、SDN 等方向均有研究进展与项目实现，毕业成员也多投身基础架构相关岗位和研究领域。除此之外，团队也拥有应用层web 开发、机器学习等成熟的技术组与培养路线，欢迎不同技术方向的同学与我们共同进步。',
-    data4: '近期成果奖项：2022中国高校计算机大赛-网络技术挑战赛区域赛一等奖、国家级一等奖 2020 中国高校计算机大赛-网络技术挑战赛区域赛一等奖、国家级二等奖；2021 中国高校计算机大赛-网络技术挑战赛区域赛一等奖、国家级三等奖;    第十三届服务外部创新创业大赛西部区域赛一等奖、国家级二等奖；第十四届服务外部创新创业大赛西部区域赛一等奖、国家级三等奖;第十六届中国大学生计算机设计大赛 省级二等奖 x 1、省级三等奖 x 1;第十三、十四届蓝桥杯信息技术产业人才大赛 省级二等奖 x 2 + 省级三等奖 x 2;2021 中国高校计算机大赛-微信小程序应用开发赛区域一等奖、国家级三等奖;2020 中国高校计算机大赛-微信小程序应用开发赛区域二等奖',
+    data1:
+      '成立于 2012 年，前身“微软创新工作室”、“黑色之光工作室”。团队立足 IT 基础与底层架构相关技术，面向兴趣和前沿应用方向扩展，是技术氛围最浓厚、团队联系最紧密的工作室之一。',
+    data2:
+      '“心有微光，不惧黑暗”是我们的口号，也是微光工作室在发展中始终贯彻的信条。秉持“兴趣驱动，自由发展”的理念，我们乐于接收对不同技术方向感兴趣的朋友，善于探求未知的技术领域。工作室由一群热爱技术的 Geek 组成，力图召集志同道合，敢于创新的伙伴们共同拼搏，挑战自我。\n微光工作室技术氛围浓厚，学期内定期组织多场技术相关分享会活动，由工作室内有相关研究经验的同学对某项技术主题展开专题分享，激发工作室成员在相关领域的学习热情。针对成员的学习需求，工作室还不定期组织项目学习和任务指导，供成员自由学习参考。',
+    data3:
+      '作为研究氛围最自由的工作室之一，微光工作室并不限制团队成员的技术方向，而是鼓励成员以兴趣导向的积极进步寻找适合自己的领域。经过多年发展，工作室当前形成了以 IT 基础架构领域为中心的团队技术方向，并辅以上层应用和前沿领域技术推进，同时鼓励百花齐放的路线创新。\n目前团队在校成员在 OS 内核、云计算、编译技术、硬件设计、SDN 等方向均有研究进展与项目实现，毕业成员也多投身基础架构相关岗位和研究领域。除此之外，团队也拥有应用层 Web 开发、机器学习等成熟的技术组与培养路线，欢迎不同技术方向的同学与我们共同进步。',
+    data4:
+      '近期成果奖项：2022中国高校计算机大赛-网络技术挑战赛区域赛一等奖、国家级一等奖 2020 中国高校计算机大赛-网络技术挑战赛区域赛一等奖、国家级二等奖；2021 中国高校计算机大赛-网络技术挑战赛区域赛一等奖、国家级三等奖;    第十三届服务外部创新创业大赛西部区域赛一等奖、国家级二等奖；第十四届服务外部创新创业大赛西部区域赛一等奖、国家级三等奖;第十六届中国大学生计算机设计大赛 省级二等奖 x 1、省级三等奖 x 1;第十三、十四届蓝桥杯信息技术产业人才大赛 省级二等奖 x 2 + 省级三等奖 x 2;2021 中国高校计算机大赛-微信小程序应用开发赛区域一等奖、国家级三等奖;2020 中国高校计算机大赛-微信小程序应用开发赛区域二等奖',
     website: 'https://www.glimmer.org.cn/',
-    pic1Src: '/img/studio/glimmer/pic1.png',
-    pic2Src: '/img/studio/glimmer/pic2.png',
-    pic3Src: '/img/studio/glimmer/pic3.png',
-})
-
-const introducionYolo = reactive({
-    name: 'YOLO工作室',
+    logo: '/img/studio/glimmer/logo.png',
+    pics: [
+      '/img/studio/glimmer/pic1.png',
+      '/img/studio/glimmer/pic2.png',
+      '/img/studio/glimmer/pic3.png'
+    ]
+  },
+  {
+    name: 'YOLO 工作室',
     data1: '着眼当下，我们欢迎任何充满活力与创新力的新血液',
-    data2: '指导老师：江维、詹瑾瑜；2021，2020，2019，2018级的众多优秀学长的亲自带领；三教403专属工位，除图书馆或者教室的又一选择；实习内推，就业指导，科研指路，你需要的，我们都有',
-    data3: '成员风格各异，自由成长不受限，只要你能保持活力，无论是web开发，还是嵌入式底层研发，又或者海外留学与科研，总能绽放属于自己的光芒',
-    data4: '主要科研项目：嵌入式AI与可信AI。工作室在智能嵌入式系统领域，发表了一系列高水平学术论文：“解决工业信息物理系统DNN安全性分层保护难题”，“提出DNN对抗强度和类型感知的检测防御方法”，“指出可解释驱动的DNN后门攻击防御方法”，“提出抗模型权重扰动的激活上界感知DNN容错方法”，“提出针对大数据存储节点的CPU-FPGA协同加速方法”等',
+    data2:
+      '指导老师：江维、詹瑾瑜；2021，2020，2019，2018 级的众多优秀学长的亲自带领；实习内推，就业指导，科研指路，你需要的，我们都有',
+    data3:
+      '成员风格各异，自由成长不受限，只要你能保持活力，无论是 Web 开发，还是嵌入式底层研发，又或者海外留学与科研，总能绽放属于自己的光芒',
+    data4:
+      '主要科研项目：嵌入式 AI 与可信 AI。工作室在智能嵌入式系统领域，发表了一系列高水平学术论文：“解决工业信息物理系统 DNN 安全性分层保护难题”，“提出 DNN 对抗强度和类型感知的检测防御方法”，“指出可解释驱动的 DNN 后门攻击防御方法”，“提出抗模型权重扰动的激活上界感知 DNN 容错方法”，“提出针对大数据存储节点的 CPU-FPGA 协同加速方法”等',
     website: '#',
-    pic1Src: '/img/studio/yolo/pic1.jpg',
-    pic2Src: '/img/studio/yolo/pic2.png',
-    pic3Src: '/img/studio/yolo/pic3.png',
-})
-
-const introducionEmbedded = reactive({
+    logo: '/img/studio/yolo/logo.jpg',
+    pics: ['/img/studio/yolo/pic1.jpg', '/img/studio/yolo/pic2.png', '/img/studio/yolo/pic3.png']
+  },
+  {
     name: '嵌入式工作室',
-    data1: '成立于2011年，是信软学院创新工坊历史最悠久的工作室之一，现已成长为信软学院旗下科创组织中数一数二的工作室。工作室以建立完善的“计算机体系结构"为宗旨，秉承"To Learn By Doing"的学习理念，以培养未来系统架构师、首席技术官为目标。',
-    data2: '嵌入式工作室研究单片机与ARM-Linux开发、计算枳视觉、硬件电路设计、Linux系统级程序设计、FPGA、算法等。工作室在成立的八年里获得了诸多的成就。每一届都有极大比例的工作室成员前往Intel、大疆、腾讯、字节跳动、商汤、地平线、美团、旷视等国内外大型企业实习实训。还有百分之八十五的保研率与大量的校赛国赛国际比赛竞赛获奖。',
-    data3: '嵌入式工作室现在每届约为二十人，我们在三教整个404以及部分405，为工作室成员提供良好的嵌入式开发环境，通过竞赛与项目来提升自己，带你深入了解计算机体系架构，从无到有的创造，从一块芯片到一个四轴飞行器，从一块开发板到一个自动避障小车，裁剪内核，定制系统。',
-    data4: '巡线四轴无人机、Makepander太极熊创客教育、基于微信小程序的弹幕式课堂互动助手、智能枕芯项目等',
+    data1:
+      '成立于 2011 年，是信软学院创新工坊历史最悠久的工作室之一，现已成长为信软学院旗下科创组织中数一数二的工作室。工作室以建立完善的“计算机体系结构"为宗旨，秉承 "To Learn By Doing" 的学习理念，以培养未来系统架构师、首席技术官为目标。',
+    data2:
+      '嵌入式工作室研究单片机与 ARM-Linux 开发、计算枳视觉、硬件电路设计、Linux 系统级程序设计、FPGA、算法等。工作室在成立的八年里获得了诸多的成就。每一届都有极大比例的工作室成员前往 Intel、大疆、腾讯、字节跳动、商汤、地平线、美团、旷视等国内外大型企业实习实训。还有百分之八十五的保研率与大量的校赛国赛国际比赛竞赛获奖。',
+    data3:
+      '嵌入式工作室现在每届约为二十人，为工作室成员提供良好的嵌入式开发环境，通过竞赛与项目来提升自己，带你深入了解计算机体系架构，从无到有的创造，从一块芯片到一个四轴飞行器，从一块开发板到一个自动避障小车，裁剪内核，定制系统。',
+    data4:
+      '巡线四轴无人机、Makepander 太极熊创客教育、基于微信小程序的弹幕式课堂互动助手、智能枕芯项目等',
     website: '#',
-    pic1Src: '/img/studio/embedded/pic1.png',
-    pic2Src: '/img/studio/embedded/pic2.png',
-    pic3Src: '/img/studio/embedded/pic3.png',
-})
+    logo: '/img/studio/embedded/logo.jpg',
+    pics: ['/img/studio/embedded/pic1.png', '/img/studio/embedded/pic2.png']
+  }
+])
 
-// 工作室介绍折叠面板
-const yiluActiveNames = ref('1')
-const weiguangActiveName = ref('1')
-const yoloActiveNames = ref('1')
-const qianrushiActiveNames = ref('1')
+const studios = computed(() =>
+  introList.map((s) => ({
+    anchor: slugify(s.name),
+    ...s
+  }))
+)
+
+function slugify(str) {
+  return str
+    .replace(/\s+/g, '-')
+    .replace(/[^a-zA-Z0-9-\u4e00-\u9fa5]/g, '')
+    .toLowerCase()
+}
+
+function goToAnchor(anchor) {
+  const el = document.querySelector('#' + anchor)
+  window.scrollTo({
+    top: el.getBoundingClientRect().top + window.scrollY - 80,
+    behavior: 'smooth'
+  })
+}
 </script>
-<style>
-.el-card {
-    background-color: rgba(0, 0, 0, 0.08) !important;
-    border: hidden !important;
-    color: white !important;
+
+<style scoped>
+:root {
+  --bg-from: #363dc2;
+  --bg-to: #202692;
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --card-glass: rgba(255, 255, 255, 0.06);
+  --glass: rgba(255, 255, 255, 0.06);
+  --accent: #cdd0ff;
+  --accent-2: rgba(141, 196, 255, 0.12);
+  --soft-shadow: 0 10px 30px rgba(6, 10, 26, 0.6);
 }
 
-.el-collapse {
-    --el-collapse-header-bg-color: rgba(0, 0, 0, 0.02) !important;
-    --el-collapse-content-bg-color: rgba(0, 0, 0, 0.02) !important;
-    border-bottom: hidden !important;
+* {
+  box-sizing: border-box;
 }
 
-.el-collapse-item {
-    button {
-        color: white !important;
-    }
-
-    .el-collapse-item__content {
-        color: white !important;
-    }
-
-    .el-collapse-item__header {
-        font-size: 18px !important;
-
-        border-bottom: hidden !important;
-    }
+.app-root {
+  min-height: 100vh;
+  background: linear-gradient(180deg, var(--bg-from), var(--bg-to));
+  color: #fff;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial;
 }
 
-.gradient {
-    background-image: linear-gradient(to right top, #89ffff, #63b8f8);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+}
+
+/* Small utility for consistent "soft card" look used across the layout */
+.card.soft {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: var(--soft-shadow);
+  backdrop-filter: blur(6px) saturate(120%);
+  -webkit-backdrop-filter: blur(6px) saturate(120%);
+  transition:
+    transform 220ms cubic-bezier(0.2, 0.9, 0.3, 1),
+    box-shadow 220ms ease;
+}
+
+.card.soft:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 20px 50px rgba(6, 10, 26, 0.7);
+}
+
+/* Hero */
+.homePage {
+  scroll-snap-align: start;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 1.125rem;
+}
+
+.nav-list {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 0.125rem;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 2rem;
+  align-items: center;
+}
+
+.title {
+  font-size: 2.75rem;
+  line-height: 1;
+  margin: 0 0 1.5rem 0;
+}
+
+.subtitle {
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 42rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.features {
+  margin-top: 1.25rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.card-image {
+  width: 360px;
+  height: 360px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.02));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(4px);
+}
+
+.card-image img {
+  max-width: 300px;
+  max-height: 300px;
+  transform: rotate(-3deg);
+  transition: transform 300ms ease;
+}
+
+.card-image:hover img {
+  transform: rotate(0deg) scale(1.02);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  border-radius: 16px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn.outlined {
+  background: transparent;
+  border: 4px solid rgba(255, 255, 255, 0.12);
+}
+
+.btn.ghost {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.btn.small {
+  padding: 0.4rem 0.6rem;
+  font-size: 0.9rem;
+}
+
+/* Join */
+.joinPage {
+  scroll-snap-align: start;
+}
+
+.grid-two {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.card {
+  padding: 1.25rem;
+  border-radius: 16px;
+}
+
+.mini-list {
+  margin-top: 1rem;
+}
+
+.chat-preview img {
+  width: 100%;
+  border-radius: 16px;
+}
+
+/* Studios */
+.studioPage {
+  padding-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.studio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.studio-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+  border-radius: 16px;
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 220ms cubic-bezier(0.2, 0.9, 0.3, 1),
+    box-shadow 220ms ease;
+}
+
+/* subtle gradient accent band on top edge */
+.studio-card::after {
+  content: '';
+  position: absolute;
+  left: -40%;
+  top: -60%;
+  width: 180%;
+  height: 120%;
+  background: radial-gradient(circle at 20% 20%, rgba(141, 196, 255, 0.06), transparent 10%),
+    radial-gradient(circle at 80% 80%, rgba(196, 255, 176, 0.04), transparent 12%);
+  pointer-events: none;
+  transform: translateY(-10%);
+}
+
+.studio-card img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 999px;
+  border: 3px solid rgba(255, 255, 255, 0.06);
+  transition:
+    transform 260ms ease,
+    box-shadow 260ms ease;
+}
+
+.studio-card:hover img {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 10px 30px rgba(6, 10, 26, 0.55);
+}
+
+.studio-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 48px rgba(6, 10, 26, 0.6);
+}
+
+.studio-list {
+  margin-top: 1.25rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.studio-full .studio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.studio-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.studio-info img {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+}
+
+.accordion details {
+  background: rgba(255, 255, 255, 0.02);
+  margin-top: 0.5rem;
+  padding: 0.6rem;
+  border-radius: 16px;
+}
+
+.accordion summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.panel {
+  margin-top: 0.5rem;
+}
+
+.studio-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.studio-gallery img {
+  width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+  aspect-ratio: 4/3;
+  transition:
+    transform 260ms ease,
+    box-shadow 260ms ease;
+}
+
+.studio-gallery img:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 12px 34px rgba(6, 10, 26, 0.55);
+}
+
+/* Footer */
+.footer {
+  min-height: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.small {
+  font-size: 0.95rem;
+}
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(197, 208, 255, 0.6);
+  outline-offset: 3px;
+}
+
+.accordion details {
+  background: rgba(255, 255, 255, 0.03);
+  margin-top: 0.75rem;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.accordion summary {
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0.6rem 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion summary::after {
+  content: '▸';
+  transition: transform 0.3s ease;
+}
+
+details[open] summary::after {
+  transform: rotate(90deg);
+}
+
+.panel {
+  max-height: 0;
+  opacity: 0;
+  padding: 0 0.8rem;
+  transition: all 0.35s ease;
+}
+
+details[open] .panel {
+  max-height: 500px;
+  opacity: 1;
+  margin-bottom: 0.6rem;
+  padding: 0.6rem 0.8rem;
 }
 </style>
