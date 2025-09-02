@@ -1,6 +1,6 @@
 import axios from 'axios'
 const instance = axios.create({
-    baseURL: 'http://47.108.209.237:8767',
+    baseURL: 'http://cn-qz-plc-1.ofalias.net:59591',
     timeout: 2000,
 })
 // 响应拦截器
