@@ -635,4 +635,120 @@ details[open] .panel {
   margin-bottom: 0.6rem;
   padding: 0.6rem 0.8rem;
 }
+
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-left {
+    order: 2;
+  }
+
+  .hero-right {
+    order: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .card-image {
+    width: 260px;
+    height: 260px;
+  }
+
+  .card-image img {
+    max-width: 220px;
+    max-height: 220px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    margin: 0 auto;
+  }
+
+  .actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+  }
+
+  .nav-list {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .grid-two {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .chat-preview {
+    order: -1;
+  }
+
+  .studio-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+
+  .studio-full .studio-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .studio-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .studio-info img {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+    border-radius: 12px;
+  }
+
+  .card-image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .card-image img {
+    max-width: 160px;
+    max-height: 160px;
+  }
+
+  .studio-card img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .studio-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+}
 </style>
