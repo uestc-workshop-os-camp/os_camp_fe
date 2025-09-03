@@ -1,6 +1,6 @@
 <template>
   <div class="app-root">
-    <div class="bg-gradient-to-br from-[#4DA2CB] to-[#67B26F] text-white">
+    <div class="text-white">
       <section ref="sections" class="homePage">
         <div class="container hero">
           <nav aria-label="Main navigation" class="nav" role="navigation">
@@ -50,9 +50,12 @@
           <div class="grid-two">
             <article class="card soft">
               <p>
-                光点计划由多个学生工作室联合举办，为期两个月，为对计算机底层感兴趣的同学提供一个实践平台。题目取自清华大学开源操作系统训练营，已得到老师与实验室的支持。
+                光点计划是由多个工作室联合举办的为期 2 月的开源操作系统训练营活动，为对计算机底层感兴趣的同学提供一个学习与实践平台。无论你是否接触过体系结构的项目，你能通过这个活动了解到你是否喜欢它，是否可能继续研究它。如果你已经计划走向计算机科学家的道路，那通过这个活动，你能积累更多知识，找到志同道合的伙伴。你亦可以通过参与举办这次活动的工作室的招新，成为多个工作室的成员。
               </p>
-
+              <br>
+              <p>
+                活动本身取自清华大学面向社会的开源操作系统训练营，题目来自于清华大学计算机学院以及叉院的 lab。意在推广清华大学的开源活动，已得到举办老师的支持。
+              </p>
               <ul class="mini-list">
                 <li>📅 <strong>时长：</strong>2 个月</li>
                 <li>
@@ -231,9 +234,15 @@ function goToAnchor(anchor) {
 </script>
 
 <style scoped>
+* {
+  font-family: 'Google Sans',
+  'Microsoft YaHei',
+  'Noto Sans CJK SC',
+  system-ui,
+  sans-serif !important;
+}
+
 :root {
-  --bg-from: #363dc2;
-  --bg-to: #202692;
   --card-bg: rgba(255, 255, 255, 0.04);
   --card-glass: rgba(255, 255, 255, 0.06);
   --glass: rgba(255, 255, 255, 0.06);
@@ -247,8 +256,11 @@ function goToAnchor(anchor) {
 }
 
 .app-root {
+  background: linear-gradient(137deg, rgba(39, 112, 190, 1), rgba(58, 162, 207, 1), rgba(132, 94, 194, 1));
+  -webkit-background: linear-gradient(137deg, rgba(39, 112, 190, 1), rgba(58, 162, 207, 1), rgba(132, 94, 194, 1));
+  -moz-background: linear-gradient(137deg, rgba(39, 112, 190, 1), rgba(58, 162, 207, 1), rgba(132, 94, 194, 1));
+
   min-height: 100vh;
-  background: linear-gradient(180deg, var(--bg-from), var(--bg-to));
   color: #fff;
   font-family:
     Inter,

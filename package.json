@@ -15,6 +15,7 @@
     "animejs": "^3.2.2",
     "axios": "^1.7.6",
     "element-plus": "^2.7.8",
+    "google-sans": "github:agnel/google-sans",
     "imagesloaded": "^5.0.0",
     "pinia": "^2.1.7",
     "scrollmonitor": "^1.2.11",
