@@ -139,7 +139,7 @@
       </section>
 
       <footer class="footer">
-        <div class="container small">© 2024-2025 光点计划团队</div>
+        <div class="container small">© 2023-2025 光点计划团队</div>
       </footer>
     </div>
   </div>
