@@ -2,7 +2,7 @@
   <div class="min-h-screen bg-slate-50 p-6">
     <!-- Header -->
     <header
-      class="max-w-6xl mx-auto bg-white rounded-2xl shadow-md p-4 flex items-center justify-between gap-4"
+      class="max-w-7xl mx-auto bg-white rounded-2xl shadow-md p-4 flex items-center justify-between gap-4"
     >
       <div class="flex items-center gap-4">
         <img alt="logo" class="w-12 h-12 rounded-md object-cover" src="/img/homePicNew.png" />
@@ -20,7 +20,7 @@
     </header>
 
     <!-- Controls -->
-    <div class="max-w-6xl mx-auto mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+    <div class="max-w-7xl mx-auto mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
       <div class="flex items-center gap-4">
         <el-switch
           v-model="isPhaseTwo"
@@ -56,7 +56,7 @@
     </div>
 
     <!-- Table Card -->
-    <div class="max-w-6xl mx-auto mt-6">
+    <div class="max-w-7xl mx-auto mt-6">
       <el-card class="overflow-hidden" shadow="hover">
         <div class="w-full" style="height: auto">
           <el-table
